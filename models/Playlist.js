@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PlaylistSchema = new Schema({
-    Title: {
+    title: {
         type: String,
+        required: true
+    },
+    songIds: {
+        type: Array,
         required: true
     },
     date: {

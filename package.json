@@ -1,21 +1,15 @@
 {
-  "name": "moody-tunes",
+  "name": "mern-twitter-again",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/C-Kan-42/moody-tunes.git"
+    "server:debug": "nodemon --inspect app.js",
+    "server": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/C-Kan-42/moody-tunes/issues"
-  },
-  "homepage": "https://github.com/C-Kan-42/moody-tunes#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

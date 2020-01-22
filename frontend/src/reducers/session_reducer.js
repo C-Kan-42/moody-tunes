@@ -2,7 +2,7 @@ import { RECEIVE_USER_LOGOUT } from "../actions/session_actions";
 
 const initialState = {
     isAuthenticated: false,
-    user: {}
+    currentUser: null
 };
 
 export default function(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
         case RECEIVE_USER_LOGOUT:
         return {
             isAuthenticated: false,
-            user: undefined
+            currentUser: null
         };
         default:
         return state;

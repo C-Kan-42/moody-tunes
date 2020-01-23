@@ -13,6 +13,6 @@ export default function(state = initialState, action) {
             currentUser: null
         };
         default:
-        return state;
+            return state;
     }
 };

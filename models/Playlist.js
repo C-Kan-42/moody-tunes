@@ -13,6 +13,10 @@ const PlaylistSchema = new Schema({
     reactionIds: {
         type: Array
     },
+    spotifyId: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

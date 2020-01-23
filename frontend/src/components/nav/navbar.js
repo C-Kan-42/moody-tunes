@@ -20,6 +20,8 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         </nav>
     );
 
+    console.log(currentUser);
+    // debugger;
     return (
         <nav className="greeting">
             <h1>MoodyTunes</h1>

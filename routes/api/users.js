@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../../models/User");
+const User = require('../../models/User');
 const bcrypt = require("bcryptjs");
 const keys = require("../../config/keys");
 const jwt = require("jsonwebtoken");
@@ -26,10 +26,12 @@ router.get(
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
+  debugger;
+
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
+  
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
       return res
@@ -52,6 +54,23 @@ router.post("/register", (req, res) => {
             .catch(err => console.log(err));
         });
       });
+
+      const payload = {
+         id: newUser.id,
+         username: newUser.username,
+         email: newUser.email
+       };
+        jwt.sign(
+         payload,
+         keys.secretOrKey,
+         { expiresIn: 3600 },
+         (err, token) => {
+           res.json({
+             success: true,
+             token: "Bearer " + token
+           });
+        }
+      );
     }
   });
 });
@@ -63,20 +82,19 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ username }).then(user => {
     if (!user) {
-      return res.status(404).json({ email: "This user does not exist." });
+      return res.status(404).json({ username: "This user does not exist." });
     }
 
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         const payload = {
           id: user.id,
-          username: user.username,
-          email: user.email
+          username: user.username
         };
         jwt.sign(
           payload,

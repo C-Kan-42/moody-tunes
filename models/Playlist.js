@@ -10,6 +10,9 @@ const PlaylistSchema = new Schema({
         type: Array,
         required: true
     },
+    reactionIds: {
+        type: Array
+    },
     date: {
         type: Date,
         default: Date.now

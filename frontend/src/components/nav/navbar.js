@@ -1,47 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./navbar.css";
+import React from 'react';
 
-class NavBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.logoutUser = this.logoutUser.bind(this);
-        this.getLinks = this.getLinks.bind(this);
-    }
+const NavBar = ({ currentUser, logout, openModal }) => {
 
-    logoutUser(e) {
-        e.preventDefault();
-        this.props.logout();
-    }
+    const sessionLinks = () => (
+        <nav className="login-signup">
+            <button onClick={() => openModal('login')}>log in
+        </button>
+                &nbsp;&nbsp;
+        <button onClick={() => openModal('signup')}>sign up
+        </button>
+            </nav>
+    );
 
-    // Selectively render links dependent on whether the user is logged in
-    getLinks() {
-        if (this.props.loggedIn) {
-        return (
-            <div>
-            <Link to={"/playlists"}>All Playlists</Link>
-            <Link to={"/profile"}>Profile</Link>
-            <button onClick={this.logoutUser}>Logout</button>
-            </div>
-        );
-        } else {
-        return (
-            <div>
-            <Link to={"/signup"}>Signup</Link>
-            <Link to={"/login"}>Login</Link>
-            </div>
-        );
-        }
-    }
+    const personalGreeting = () => (
+        <nav className="header-group">
+            <h2>{currentUser.username}</h2>
+            &nbsp;&nbsp;
+            <button className="header-button" onClick={logout}>log out</button>
+        </nav>
+    );
 
-    render() {
-        return (
-        <div>
+    return (
+        <nav className="greeting">
             <h1>MoodyTunes</h1>
-            {this.getLinks()}
-        </div>
-        );
-    }
-}
+            {currentUser ? personalGreeting() : sessionLinks()}
+        </nav>
+    )
+};
+
+// the Greeting component is purely presentational--it doesn't have to maintain any local state.
+// therefore, we can just export it as a regular variable; it doesn't need to be a React component.
 
 export default NavBar;

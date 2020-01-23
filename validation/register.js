@@ -33,17 +33,17 @@ module.exports = function validateRegisterInput(data) {
     errors.password = "Password must be between 2 and 30 characters";
   }
 
-  if (Validator.isEmpty(data.password2)) {
-    errors.password2 = "Password is required";
-  }
+  // if (Validator.isEmpty(data.password2)) {
+  //   errors.password2 = "Password is required";
+  // }
 
-  if (!Validator.isLength(data.password2, { min: 2, max: 30 })) {
-    errors.password2 = "Password must be between 2 and 30 characters";
-  }
+  // if (!Validator.isLength(data.password2, { min: 2, max: 30 })) {
+  //   errors.password2 = "Password must be between 2 and 30 characters";
+  // }
 
-  if (!Validator.equals(data.password, data.password2)) {
-    errors.password2 = "Passwords must match";
-  }
+  // if (!Validator.equals(data.password, data.password2)) {
+  //   errors.password2 = "Passwords must match";
+  // }
 
   return {
     errors,

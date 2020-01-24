@@ -3,6 +3,8 @@ import React from 'react';
 class Playlists extends React.Component{
     constructor(props) {
         super(props);
+
+        this.state = this.props.Playlists;
     }
 
     componentDidMount() {
@@ -11,11 +13,19 @@ class Playlists extends React.Component{
 
     handleClick(e) {
         e.preventDefault();
-        
+
     }
 
     render() {
-        return null;
+        return (
+            <div>
+                {this.state.title}
+
+                {/* <button>Play</button> */}
+
+                <Reactions />
+            </div>
+        );
     }
 };
 

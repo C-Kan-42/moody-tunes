@@ -18,7 +18,7 @@ export const fetchPlaylists = () => dispatch =>
         .then(playlists => dispatch(receivePlaylists(playlists)))
         .catch(err => console.log(err));
 
-export const fetchFollowedPlaylists = () => dispatch =>
-    getFollowedPlaylists(id)
-        .then(playists => dispatch(receiveFollowedPlaylists(plalists)))
-        .catch(err => console.log(err));
+// export const fetchFollowedPlaylists = () => dispatch =>
+//     getFollowedPlaylists(id)
+//         .then(playists => dispatch(receiveFollowedPlaylists(plalists)))
+//         .catch(err => console.log(err));

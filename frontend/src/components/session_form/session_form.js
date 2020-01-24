@@ -10,7 +10,7 @@ class SessionForm extends React.Component {
       email: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDemo = this.handleDemo.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -24,12 +24,12 @@ class SessionForm extends React.Component {
       .then(this.props.closeModal);
   }
 
-  // handleDemo(e) {
-  //   e.preventDefault();
-  //   const demoUser = { username: 'demo_user', email: '', password: 'demo123' };
-    
-    
-  // }
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = { username: 'demoUser', email: 'demo@email.com', password: 'password' };
+    this.props.processForm(demoUser)
+      .then(this.props.closeModal);
+  }
 
   renderErrors() {
     if (Array.from(this.props.errors).length > 0) {

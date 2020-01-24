@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 
-import NavBarContainer from "./nav/navbar_container";
-import Modal from "./modal/modal";
-import MainPage from "./main/main_page";
+import NavBarContainer from "../nav/navbar_container";
+import Modal from "../modal/modal";
+import MainPage from "../main/main_page";
 
-import LoginFormContainer from "./session/login_form_container";
-import SignupFormContainer from "./session/signup_form_container";
-import PlaylistsContainer from './playlists/playlists_container';
+import LoginFormContainer from "../session_form/login_form_container";
+import SignupFormContainer from "../session_form/signup_form_container";
+import PlaylistsContainer from '../playlists/playlists_container';
 
 const App = () => (
    
@@ -22,7 +22,7 @@ const App = () => (
             <AuthRoute exact path="/" component={MainPage} />
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/register" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
+            {/* <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} /> */}
         </Switch>
 
     </div>

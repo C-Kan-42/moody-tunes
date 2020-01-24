@@ -4,7 +4,7 @@ import './main_page.scss';
 class MainPage extends React.Component {
     render() {
         return (
-        <div>
+        <div className="splash">
             <div className="splash-banner"/>
         </div>
         );

@@ -1,0 +1,36 @@
+.modal-background {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 20, 255, 0.3);
+  z-index: 100;
+}
+
+.modal-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  background: black;
+  background-size: cover;
+  border-radius: 4px;
+  z-index: 12;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #1a1a1b;
+  // box-shadow: 5px 5px 26px -2px #BFBFBF;
+  min-height: 50vh;
+  min-width: 50vh;
+  height: 550px;
+  width: 750px;
+}
+

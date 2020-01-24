@@ -21,4 +21,19 @@ router.get("/:playlistId", (req, res) => {
         );
 });
 
+// To test/seed on Postman, creating playlist
+router.post("/", (req, res) => {
+    const newPlaylist = new Playlist({
+        title: req.body.title,
+        songIds: req.body.songIds,
+        reactionIds: req.body.reactionIds,
+        spotifyId: req.body.spotifyId,
+        date: req.body.date
+    });
+    newPlaylist
+        .save()
+        .then(playlist => res.json(playlist))
+        .catch(err => res.status(400).json({ noplaylistfound: "No playlist not made" }))
+})
+
 module.exports = router;

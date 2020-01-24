@@ -11,7 +11,11 @@ const PlaylistSchema = new Schema({
         required: true
     },
     reactionIds: {
-        type: Array
+        type: Object
+    },
+    spotifyId: { // Added this in
+        type: String,
+        required: true
     },
     date: {
         type: Date,

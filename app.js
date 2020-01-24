@@ -13,24 +13,20 @@ mongoose
   .then(() => console.log("Connected to mongoDB"))
   .catch(err => console.log(err));
 
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
-
-app.use(bodyParser.json());
-
 app.get("/", (req, res) => {
   res.send("Hello Moody Tunes!");
 });
 
+app.use(passport.initialize());
+require("./config/passport")(passport);
+
+app.use(
+  bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 app.use("/api/users", users);
 app.use("/api/playlists", playlists);
 app.use("/api/follows", follows);
-
-app.use(passport.initialize());
-require("./config/passport")(passport);
 
 const port = process.env.PORT || 5000;
 

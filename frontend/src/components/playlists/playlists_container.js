@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import Playlists from './playlists';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        playlists: Object.values(state.entities.playlists)
+        playlists: Object.values(state.entities.playlists.all),
+        // count: 0
     };
 };
 

@@ -5,12 +5,12 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
         <nav className="login-signup">
-            <button onClick={() => openModal('login')}>log in
-        </button>
+            <button className="header-button" onClick={() => openModal('login')}>log in
+            </button>
                 &nbsp;&nbsp;
-        <button onClick={() => openModal('signup')}>sign up
-        </button>
-            </nav>
+            <button className="header-button" onClick={() => openModal('signup')}>sign up
+            </button>
+        </nav>
     );
 
     const personalGreeting = () => (
@@ -25,7 +25,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     // debugger;
     return (
         <nav className="navbar">
-            <h1>MoodyTunes</h1>
+            <h1 className="moody-tunes">MOODY TUNES</h1>
             {currentUser ? personalGreeting() : sessionLinks()}
         </nav>
     )

@@ -7,6 +7,8 @@ const playlists = require("./routes/api/playlists");
 const follows = require("./routes/api/follows");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const reactions = require("./routes/api/reactions");
+const songs = require("./routes/api/songs"); 
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -27,6 +29,8 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/playlists", playlists);
 app.use("/api/follows", follows);
+app.use("/api/reactions", reactions);
+app.use("/api/songs", songs);
 
 const port = process.env.PORT || 5000;
 

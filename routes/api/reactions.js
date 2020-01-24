@@ -11,4 +11,17 @@ router.get("/", (req, res) => {
         );
 });
 
+// Create our reactions to put into our db
+router.post("/", (req, res) => {
+  const newReaction = new Reaction({
+    mood: req.body.mood,
+    date: req.body.date
+  });
+  newReaction
+    .save()
+    .then(reaction => res.json(reaction))
+    .catch(err => res.status(400).json({ noReaction: "No reaction was made" })
+    );
+});
+
 module.exports = router;

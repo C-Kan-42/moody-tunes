@@ -11,8 +11,12 @@ const SongSchema = new Schema({
         reqiured: true
     },
     spotifyId: {
-        type: Number,
+        type: String,
         required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
 

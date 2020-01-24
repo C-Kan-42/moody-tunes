@@ -12,9 +12,9 @@ const PlaylistsReducer = (
             newState.all = action.playlists.data; // DOUBLE CHECK THIS
             return newState;
 
-        case RECEIVE_FOLLOWED_PLAYLISTS:
-            newState.followed = action.playlists.data;
-            return newState;
+        // case RECEIVE_FOLLOWED_PLAYLISTS:
+        //     newState.followed = action.playlists.data;
+        //     return newState;
                 
         default:
             return state;

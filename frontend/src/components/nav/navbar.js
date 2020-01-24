@@ -1,4 +1,5 @@
 import React from 'react';
+import './navbar.scss';
 
 const NavBar = ({ currentUser, logout, openModal }) => {
 
@@ -23,7 +24,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     console.log(currentUser);
     // debugger;
     return (
-        <nav className="greeting">
+        <nav className="navbar">
             <h1>MoodyTunes</h1>
             {currentUser ? personalGreeting() : sessionLinks()}
         </nav>

@@ -1,0 +1,23 @@
+.splash-banner {
+  width: 100vw;
+  height: 100%;
+ background: url('../../assets/moody_tunes.png');
+ background-color: black;
+ background-image: cover;
+ background-position: top;
+ background-repeat: no-repeat;
+ background-size: 80%;
+}
+
+.splash {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+
+
+

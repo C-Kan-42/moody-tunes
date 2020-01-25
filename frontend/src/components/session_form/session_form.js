@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import './session-form.scss';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -87,39 +88,42 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div className="login-form-container">
-        {/* <button className="demo-login"onClick={() => this.props.login({ username: "jmoney", password: "password" })}>Demo Login</button> */}
-        <form className="login-form" onSubmit={this.handleSubmit}>
+      <div className="login-form-box">
+        <div className="login-form-container">
+          {/* <button className="demo-login"onClick={() => this.props.login({ username: "jmoney", password: "password" })}>Demo Login</button> */}
+          <form className="login-form" onSubmit={this.handleSubmit}>
 
-          <label>
-            {/* {username} */}
-            <input
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              placeholder={username}
-            />
-          </label>
-          <br />
-          {emailHTML}
-          <br />
-          <label>
-            {/* {password} */}
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder={password}
-            />
-          </label>
+            <label>
+              {/* {username} */}
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder={username}
+              />
+            </label>
+            <br />
+            {emailHTML}
+            <br />
+            <label>
+              {/* {password} */}
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder={password}
+              />
+            </label>
 
-          {this.renderErrors()}
-          <br />
-          <input className="submit" type="submit" value={this.props.formType} />
-          <br />
-          {demoButton}
-        </form>
+            {this.renderErrors()}
+            <br />
+            <input className="submit" type="submit" value={this.props.formType} />
+            <br />
+            {demoButton}
+          </form>
+        </div>
       </div>
+      
     );
   }
 }

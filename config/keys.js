@@ -1,5 +1,5 @@
-module.exports = {
-  mongoURI:
-    "mongodb+srv://moody-tunes-dev:mmlYG0nE6r6q6vLM@cluster0-pfikf.mongodb.net/test?",
-  secretOrKey: "mmlYG0nE6r6q6vLM"
-};
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./keys_prod');
+} else {
+  module.exports = require('./keys_dev');
+}

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Reactions from './reactions';
-
+import {fetchReactions} from '../../actions/reaction_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

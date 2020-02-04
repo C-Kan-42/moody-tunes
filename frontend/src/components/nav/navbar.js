@@ -1,7 +1,12 @@
 import React from 'react';
 import './navbar.scss';
 
-const NavBar = ({ currentUser, logout, openModal }) => {
+const NavBar = ({ currentUser, logout, openModal, history }) => {
+    const logoutButton = (e) => {
+        e.preventDefault();
+        logout();
+        history.push("/");
+    };
 
     const sessionLinks = () => (
         <nav className="login-signup">
@@ -17,12 +22,10 @@ const NavBar = ({ currentUser, logout, openModal }) => {
         <nav className="header-group">
             <h2>{currentUser.username}</h2>
             &nbsp;&nbsp;
-            <button className="header-button" onClick={logout}>log out</button>
+            <button className="header-button" onClick={logoutButton}>log out</button>
         </nav>
     );
 
-    console.log(currentUser);
-    // debugger;
     return (
         <nav className="navbar">
             <h1 className="moody-tunes">MOODY TUNES</h1>

@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import './session-form.scss';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -59,18 +60,22 @@ class SessionForm extends React.Component {
     let emailHTML;
     let demoButton;
 
-    if (this.props.formType === "sign up") {
+    if (this.props.formType === "Sign Up") {
       username = "create a username";
       password = "create a password";
       email = "email";
       emailHTML = (
-        < label >
-          {/* { email } */}
+        < label>
+          <header className="form-label">
+            Email
+          </header> 
+          <br />
           < input
             type="text"
             value={this.state.email}
             onChange={this.update("email")}
-            placeholder="your email address"
+            // placeholder="Email"
+            className="form-input"
           />
         </label >
       );
@@ -79,47 +84,71 @@ class SessionForm extends React.Component {
 
     }
     else {
-      username = "your username";
-      password = "your password";
+      username = "username";
+      password = "password";
       demoButton = (
-        <button onClick={this.handleDemo}>demo user</button>
+        <button onClick={this.handleDemo} className="demo-button">
+          <span className="button-label"> 
+            Demo User
+          </span> 
+        </button>
       );
     }
 
     return (
-      <div className="login-form-container">
-        {/* <button className="demo-login"onClick={() => this.props.login({ username: "jmoney", password: "password" })}>Demo Login</button> */}
-        <form className="login-form" onSubmit={this.handleSubmit}>
+      <div className="login-form-box">
+        <div className="login-form-container">
+          {/* <button className="demo-login"onClick={() => this.props.login({ username: "jmoney", password: "password" })}>Demo Login</button> */}
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <header className="session-form-header">
+              {this.props.formType}
+            </header>
+            <label>
+              <header className="form-label">
+                Username
+              </header> 
+              <br />
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                // placeholder={username}
+                className="form-input"
+              />
+            </label>
+            <br />
+            {emailHTML}
+            <br />
+            <label>
+              <header className="form-label">
+                Password
+              </header> 
+              <br />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                // placeholder={password}
+                className="form-input"
+              />
+            </label>
 
-          <label>
-            {/* {username} */}
-            <input
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              placeholder={username}
-            />
-          </label>
-          <br />
-          {emailHTML}
-          <br />
-          <label>
-            {/* {password} */}
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder={password}
-            />
-          </label>
+            {this.renderErrors()}
+            <br />
 
-          {this.renderErrors()}
-          <br />
-          <input className="submit" type="submit" value={this.props.formType} />
-          <br />
-          {demoButton}
-        </form>
+            <div className="button-row">
+              <div className="left-button">
+                  <input className="submit" type="submit" value={this.props.formType} />
+              </div>
+              <div className="right-button">
+                {demoButton}
+              </div>
+            </div>
+            
+          </form>
+        </div>
       </div>
+      
     );
   }
 }

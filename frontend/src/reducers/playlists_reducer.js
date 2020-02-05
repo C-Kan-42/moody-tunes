@@ -2,14 +2,12 @@ import { RECEIVE_PLAYLISTS,
     RECEIVE_FOLLOWED_PLAYLISTS 
 } from '../actions/playlist_actions';
 
-const PlaylistsReducer = (
-    state = { all: {} , followed: {} }
-) => {
+const PlaylistsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_PLAYLISTS:
-            newState.all = action.playlists.data; // DOUBLE CHECK THIS
+            newState.all = action.playlists.data; // DOUBLE CHECK THIS...create key "all" under playlists slice
             return newState;
 
         // case RECEIVE_FOLLOWED_PLAYLISTS:

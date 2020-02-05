@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Playlists from './playlists';
+import Playlists from './playlist_index';
 import {fetchPlaylists} from '../../actions/playlist_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Playlists);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaylistIndex);

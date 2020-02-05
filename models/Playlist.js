@@ -6,10 +6,11 @@ const PlaylistSchema = new Schema({
         type: String,
         required: true
     },
-    songIds: {
-        type: Array,
+    songIds: [{
+        type: Schema.Types.ObjectId,
+        ref: "Songs",
         required: true
-    },
+    }],
     reactionIds: {
         type: Object
     },

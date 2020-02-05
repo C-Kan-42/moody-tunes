@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Follow = require("../../models/Follow");
 const passport = require("passport");
+const jwt = require("jsonwebtoken");
 
 router.get('/', (req, res) => {
     Follow.find()
@@ -10,12 +11,20 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({ noplaylistsfound: 'No playlists found' }));
 });
 
-router.post('/', (req, res) => { // get back to this
-    Follow.findById(req.param.id)
-        .then(playlist => res.json(playlist))
-        .catch(err => res.status(404).json({ noplaylistfound: "Unable to follow playlist" })
-        );
-});
+router.post('/', 
+    passport.authenticate('jwt', { session: false}),
+    (req, res) => { 
+        const newFollow = new Follow({
+            userId: req.user.id,
+            playlistId: req.playlist.id,
+            date: Date.now
+        });
+
+        newFollow
+            .save()
+            .then(follow => res.json(follow));
+    }
+);
 
 router.delete('/:playlistId', (req, res) => {
     Follow.findById(req.params.id)

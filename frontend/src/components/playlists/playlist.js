@@ -17,7 +17,7 @@ class Playlist extends React.Component {
         <ul>
           {playlist.songs.map(song => 
             <li>
-              <Track key={song.id} track={song}/>
+              <Track key={song.id} track={song}/> 
             </li>
           )}
         </ul>

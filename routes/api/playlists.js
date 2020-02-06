@@ -15,8 +15,9 @@ router.get("/", (req, res) => {
         );
 });
 
-router.get("/:playlistId", (req, res) => {
-    Playlist.findById(req.params.id)
+router.get('/:playlistId', (req, res) => {
+    Playlist.findById(req.params.playlistId)
+        .populate("songs")
         .then(playlist => res.json(playlist))
         .catch(err =>
             res.status(404).json({ noplaylistfound: "No playlist found with that ID" })

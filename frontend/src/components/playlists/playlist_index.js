@@ -11,7 +11,7 @@ class PlaylistIndex extends React.Component{
     }
 
     componentDidMount() {
-        this.props.fetchPlaylists();
+        this.props.fetchPlaylist();
     }
 
     handleClick(e) {
@@ -20,10 +20,10 @@ class PlaylistIndex extends React.Component{
     }
 
     render() {
-        const { playlists } = this.props
+        const { playlist } = this.props
         return (
             <ul>
-                {playlists.map((playlist) => <Playlist key={playlist.id} playlist={playlist}/>)}
+                <Playlist key={playlist.id} playlist={playlist}/>
             </ul>
             // <div>
             //     {this.state.title}

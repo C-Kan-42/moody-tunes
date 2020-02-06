@@ -7,7 +7,7 @@ const PlaylistsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_PLAYLISTS:
-            newState.all = action.playlists.data; // DOUBLE CHECK THIS...create key "all" under playlists slice
+            newState = action.playlists.data; // DOUBLE CHECK THIS...create key "all" under playlists slice
             return newState;
 
         // case RECEIVE_FOLLOWED_PLAYLISTS:

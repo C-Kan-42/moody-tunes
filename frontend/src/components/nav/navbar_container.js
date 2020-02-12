@@ -5,7 +5,7 @@ import { openModal } from '../../actions/modal_actions';
 import { withRouter } from 'react-router-dom';
 
 const mSTP = (state) => ({
-  currentUser: state.session.currentUser //we are mapping a prop called "currentUser" to our greeting component. 
+  currentUser: state.session.user //we are mapping a prop called "currentUser" to our greeting component. 
 });
 
 const mDTP = (dispatch) => ({

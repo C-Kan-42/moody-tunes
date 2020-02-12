@@ -1,30 +1,42 @@
 import React from 'react';
-import ReactionsContainer from '../reactions/reactions_container';
+// import ReactionsContainer from '../reactions/reactions_container';
 import Playlist from '../playlists/playlist';
 import Reactions from '../reactions/reactions';
+
 
 class PlaylistIndex extends React.Component{
     constructor(props) {
         super(props);
 
-        // this.state = this.props.Playlists;
+        this.state = {
+            playlists: []
+        };
     }
 
     componentDidMount() {
-        this.props.fetchPlaylist();
+        this.props.fetchPlaylists();
     }
 
     handleClick(e) {
         e.preventDefault();
-
     }
 
     render() {
-        const { playlist } = this.props
+        if (this.props.playlists.length > 0) {
+            const { playlists } = this.props
+            console.log(playlists);
+        }
+        console.log(this.props.playlists)
         return (
             <ul>
-                <Playlist key={playlist.id} playlist={playlist}/>
+                {this.props.playlists.length > 0 ? 
+                    (this.props.playlists.map(playlist =>
+                        <li>
+                            <Playlist key={playlist.id} playlist={playlist} />
+                        </li>
+                    )) : null}
             </ul>
+            
             // <div>
             //     {this.state.title}
 

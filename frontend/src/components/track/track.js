@@ -5,8 +5,8 @@ const Track = ({ track }) => {
   const embedUrl = `https://open.spotify.com/embed/track/${track.spotifyId}`
   return(
   <li className="track">
-    <span>{track.title}</span>
-    <span>{track.artist}</span>
+    {/* <span>{track.title}</span>
+    <span>{track.artist}</span> */}
     <iframe src={embedUrl} width="400" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </li>
   )

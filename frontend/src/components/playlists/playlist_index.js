@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactionsContainer from '../reactions/reactions_container';
 import Playlist from '../playlists/playlist';
 import Reactions from '../reactions/reactions';
-
+import './playlist-index.scss';
 
 class PlaylistIndex extends React.Component{
     constructor(props) {
@@ -28,10 +28,10 @@ class PlaylistIndex extends React.Component{
         }
         console.log(this.props.playlists)
         return (
-            <ul>
+            <ul className="playlist-index">
                 {this.props.playlists.length > 0 ? 
                     (this.props.playlists.map(playlist =>
-                        <li>
+                        <li className="playlist-item">
                             <Playlist key={playlist.id} playlist={playlist} />
                         </li>
                     )) : null}

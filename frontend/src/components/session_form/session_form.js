@@ -66,9 +66,9 @@ class SessionForm extends React.Component {
       email = "email";
       emailHTML = (
         < label>
-          <header className="form-label">
+          <div className="form-label">
             Email
-          </header> 
+          </div> 
           <br />
           < input
             type="text"
@@ -86,11 +86,12 @@ class SessionForm extends React.Component {
     else {
       username = "username";
       password = "password";
+      const demoLabel = "Demo User";
       demoButton = (
         <button onClick={this.handleDemo} className="demo-button">
-          <span className="button-label"> 
+          <div className="button-label"> 
             Demo User
-          </span> 
+          </div> 
         </button>
       );
     }
@@ -104,9 +105,9 @@ class SessionForm extends React.Component {
               {this.props.formType}
             </header>
             <label>
-              <header className="form-label">
+              <div className="form-label">
                 Username
-              </header> 
+              </div> 
               <br />
               <input
                 type="text"
@@ -120,9 +121,9 @@ class SessionForm extends React.Component {
             {emailHTML}
             <br />
             <label>
-              <header className="form-label">
+              <div className="form-label">
                 Password
-              </header> 
+              </div> 
               <br />
               <input
                 type="password"

@@ -1,40 +1,54 @@
 import React from 'react';
 import './navbar.scss';
 
-const NavBar = ({ currentUser, logout, openModal, history }) => {
-    const logoutButton = (e) => {
+class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.logoutUser = this.logoutUser.bind(this);
+        this.sessionLinks = this.sessionLinks.bind(this);
+    }
+
+    logoutUser(e) {
         e.preventDefault();
-        logout();
-        history.push("/");
+        this.props.logout();
+        this.props.history.push("/");
     };
 
-    const sessionLinks = () => (
-        <nav className="login-signup">
-            <button className="header-button" onClick={() => openModal('login')}>log in
-            </button>
-                &nbsp;&nbsp;
-            <button className="header-button" onClick={() => openModal('signup')}>sign up
-            </button>
-        </nav>
-    );
+    sessionLinks() {
+        if(this.props.loggedIn) {
+            return (
+                <nav className="header-group">
+                    {console.log(this.props.currentUser)}
+                    <h2>{this.props.currentUser.username}</h2>
+                    &nbsp;&nbsp;
+                    <button className="header-button" onClick={this.logoutUser}>log out</button>
+                </nav>
+            )
+        } else {
+            return (
+                <nav className="login-signup">
+                    <button className="header-button" onClick={() => this.props.openModal('login')}>log in
+                    </button>
+                        &nbsp;&nbsp;
+                    <button className="header-button" onClick={() => this.props.openModal('signup')}>sign up
+                    </button>
+                </nav>
+            )
+            
+        }
+        
+    };
 
-    const personalGreeting = () => (
-        <nav className="header-group">
-            <h2>{currentUser.username}</h2>
-            &nbsp;&nbsp;
-            <button className="header-button" onClick={logoutButton}>log out</button>
-        </nav>
-    );
+    render() {
+        return (
+            <nav className="navbar">
+                <h1 className="moody-tunes">MOODY TUNES</h1>
+                {this.sessionLinks()}
+            </nav>
+        );
+    };
 
-    return (
-        <nav className="navbar">
-            <h1 className="moody-tunes">MOODY TUNES</h1>
-            {currentUser ? personalGreeting() : sessionLinks()}
-        </nav>
-    )
+    
 };
-
-// the Greeting component is purely presentational--it doesn't have to maintain any local state.
-// therefore, we can just export it as a regular variable; it doesn't need to be a React component.
 
 export default NavBar;

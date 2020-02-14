@@ -33,6 +33,7 @@ class PlaylistIndex extends React.Component{
                     (this.props.playlists.map(playlist =>
                         <li className="playlist-item">
                             <Playlist key={playlist.id} playlist={playlist} />
+                            <div className="playlist-spacer"></div>
                         </li>
                     )) : null}
             </ul>

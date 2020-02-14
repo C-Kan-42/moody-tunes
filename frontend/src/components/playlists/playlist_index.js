@@ -1,5 +1,6 @@
 import React from 'react';
-// import ReactionsContainer from '../reactions/reactions_container';
+import { Route } from 'react-router-dom';
+import PlaylistShowContainer from './playlist_show_container';
 import Playlist from '../playlists/playlist';
 import Reactions from '../reactions/reactions';
 import './playlist-index.scss';
@@ -17,9 +18,6 @@ class PlaylistIndex extends React.Component{
         this.props.fetchPlaylists();
     }
 
-    handleClick(e) {
-        e.preventDefault();
-    }
 
     render() {
         if (this.props.playlists.length > 0) {
@@ -28,22 +26,17 @@ class PlaylistIndex extends React.Component{
         }
         console.log(this.props.playlists)
         return (
-            <ul className="playlist-index">
+            <section className="playlist-index-container">
                 {this.props.playlists.length > 0 ? 
-                    (this.props.playlists.map(playlist =>
-                        <li className="playlist-item">
+                (<Route path="/playlist/:playlistId" component={PlaylistShowContainer} />) : null}
+                <ul className="playlist-index">
+                    {this.props.playlists.length > 0 ? 
+                        (this.props.playlists.map(playlist =>
                             <Playlist key={playlist.id} playlist={playlist} />
-                        </li>
-                    )) : null}
-            </ul>
+                        )) : null}
+                </ul>
+            </section>
             
-            // <div>
-            //     {this.state.title}
-
-            //     {/* <button>Play</button> */}
-
-            //     <Reactions />
-            // </div>
         );
     }
 };

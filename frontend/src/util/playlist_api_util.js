@@ -4,7 +4,7 @@ export const getPlaylists = () => {
     return axios.get('/api/playlists')
 };
 
-export const getPlaylist = (playlist_id) => {
+export const getPlaylist = playlist_id => {
   return axios.get(`/api/playlists/${playlist_id}`)
 }
 

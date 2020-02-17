@@ -41,7 +41,7 @@ class PlaylistIndex extends React.Component{
                 <ul className="playlist-index">
                     {this.props.playlists.length > 0 ? 
                         (this.props.playlists.map(playlist =>
-                            playlistItemCreator(playlist)
+                            this.playlistItemCreator(playlist)
                         )) : null}
                 </ul>
             </section>

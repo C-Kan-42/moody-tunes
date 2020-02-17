@@ -18,7 +18,7 @@ class Playlist extends React.Component {
 
   render() {
     const { playlist } = this.props; 
-    console.log(playlist);
+    // console.log(playlist);
     if (!playlist) return null;
     return(
       <li className="playlist-item" >

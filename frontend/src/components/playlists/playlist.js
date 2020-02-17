@@ -23,6 +23,7 @@ class Playlist extends React.Component {
     return(
       <li className="playlist-item" >
         <Link to={`/playlists/${playlist.id}`}>
+        {/* check HOW TO REFERENCE mongo ids */}
           <h2>{playlist.title}</h2>
           {/* <ul className="song-list">
             {playlist.songs.map(song => 

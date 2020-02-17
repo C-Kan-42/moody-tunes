@@ -1,5 +1,6 @@
 import React from 'react';
-// import ReactionsContainer from '../reactions/reactions_container';
+import { Route } from 'react-router-dom';
+import PlaylistShowContainer from './playlist_show_container';
 import Playlist from '../playlists/playlist';
 import Reactions from '../reactions/reactions';
 import './playlist-index.scss';
@@ -17,8 +18,13 @@ class PlaylistIndex extends React.Component{
         this.props.fetchPlaylists();
     }
 
-    handleClick(e) {
-        e.preventDefault();
+    playlistItemCreator(playlist) {
+        return(
+            <li>
+                <Playlist key={playlist.id} playlist={playlist} />
+                <div className="playlist-spacer"></div>
+            </li>
+        );
     }
 
     render() {
@@ -26,25 +32,19 @@ class PlaylistIndex extends React.Component{
             const { playlists } = this.props
             console.log(playlists);
         }
+        const playlistItem = 
         console.log(this.props.playlists)
         return (
-            <ul className="playlist-index">
+            <section className="playlist-index-container">
                 {this.props.playlists.length > 0 ? 
-                    (this.props.playlists.map(playlist =>
-                        <li className="playlist-item">
-                            <Playlist key={playlist.id} playlist={playlist} />
-                            <div className="playlist-spacer"></div>
-                        </li>
-                    )) : null}
-            </ul>
-            
-            // <div>
-            //     {this.state.title}
-
-            //     {/* <button>Play</button> */}
-
-            //     <Reactions />
-            // </div>
+                (<Route path="/playlist/:playlistId" component={PlaylistShowContainer} />) : null}
+                <ul className="playlist-index">
+                    {this.props.playlists.length > 0 ? 
+                        (this.props.playlists.map(playlist =>
+                            playlistItemCreator(playlist)
+                        )) : null}
+                </ul>
+            </section>
         );
     }
 };

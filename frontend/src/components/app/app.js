@@ -11,6 +11,7 @@ import MainPage from "../main/main_page";
 import LoginFormContainer from "../session_form/login_form_container";
 import SignupFormContainer from "../session_form/signup_form_container";
 import PlaylistsContainer from '../playlists/playlists_container';
+import PlaylistShowContainer from '../playlists/playlist_show_container';
 
 const App = () => (
    
@@ -23,6 +24,7 @@ const App = () => (
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/register" component={SignupFormContainer} />
             <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
+            <ProtectedRoute path="/playlists/:playlistId" component={PlaylistShowContainer} />
         </Switch>
 
     </div>

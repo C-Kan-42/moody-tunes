@@ -18,12 +18,21 @@ class PlaylistIndex extends React.Component{
         this.props.fetchPlaylists();
     }
 
+    playlistItemCreator(playlist) {
+        return(
+            <li>
+                <Playlist key={playlist.id} playlist={playlist} />
+                <div className="playlist-spacer"></div>
+            </li>
+        );
+    }
 
     render() {
         if (this.props.playlists.length > 0) {
             const { playlists } = this.props
             console.log(playlists);
         }
+        const playlistItem = 
         console.log(this.props.playlists)
         return (
             <section className="playlist-index-container">
@@ -32,11 +41,10 @@ class PlaylistIndex extends React.Component{
                 <ul className="playlist-index">
                     {this.props.playlists.length > 0 ? 
                         (this.props.playlists.map(playlist =>
-                            <Playlist key={playlist.id} playlist={playlist} />
+                            playlistItemCreator(playlist)
                         )) : null}
                 </ul>
             </section>
-            
         );
     }
 };

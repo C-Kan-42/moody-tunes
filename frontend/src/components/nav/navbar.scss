@@ -8,10 +8,10 @@
 }
 
 .header-button {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Heebo', sans-serif;
   display: inline-block;
   // font-style: oblique;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   // box-shadow: 3px 4px 0px 0px #863CD6;
 	background:linear-gradient(to bottom, #B269DC 5%, #863CD6 100%);
 	background-color:#79bbff;
@@ -20,9 +20,10 @@
 	display:inline-block;
 	cursor:pointer;
 	color:#FDB8FF;
-	font-family:Arial;
+  font-family: 'Heebo', sans-serif;
+  // font-style: italic;
 	font-size:14px;
-	font-weight:bold;
+	// font-weight: bolder;
 	padding:8px 24px;
 	text-decoration:none;
   // text-shadow:0px 1px 0px #528ecc;
@@ -34,10 +35,15 @@
 }
 
 .moody-tunes {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Heebo', sans-serif;
   color:#FDB8FF;
   padding-left: 60px;
   text-shadow:2px 2px 0px #528ecc;
   font-size: 30px;
+  font-weight: bolder;
+}
+
+.header-group {
+  padding-right: 20px;
 }
 

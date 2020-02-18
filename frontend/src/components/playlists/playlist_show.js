@@ -2,6 +2,7 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 
 import Track from '../track/track';
+import Reactions from '../reactions/reactions';
 
 class PlaylistShow extends React.Component {
     constructor(props) {
@@ -40,6 +41,7 @@ class PlaylistShow extends React.Component {
                         </li>
                         ) : null}
                     </ul> 
+                    < Reactions />
                 </section>
             );
         }    

@@ -28,6 +28,7 @@ class PlaylistShow extends React.Component {
         if (this.props.playlist === {}) {
             return null;
         } else {
+            const reactions = Object.keys(playlist.reactions);
             return(
                 <section className="playlist-show-detail">
                     <h2 className="playlist-title">
@@ -41,6 +42,9 @@ class PlaylistShow extends React.Component {
                         </li>
                         ) : null}
                     </ul> 
+                    <div>
+                        {reactions.map(reaction => console.log(reaction.mood))}             
+                    </div>
                     < Reactions />
                 </section>
             );

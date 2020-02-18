@@ -30,14 +30,15 @@ class PlaylistIndex extends React.Component{
     render() {
         if (this.props.playlists.length > 0) {
             const { playlists } = this.props
-            console.log(playlists);
+            // console.log(playlists);
         }
         const playlistItem = 
         console.log(this.props.playlists)
+        console.log(this.state)
         return (
             <section className="playlist-index-container">
                 {this.props.playlists.length > 0 ? 
-                (<Route path="/playlist/:playlistId" component={PlaylistShowContainer} />) : null}
+                <Route path="/playlist/:playlistId" component={PlaylistShowContainer} /> : null}
                 <ul className="playlist-index">
                     {this.props.playlists.length > 0 ? 
                         (this.props.playlists.map(playlist =>

@@ -12,8 +12,7 @@ class PlaylistShow extends React.Component {
     };
 
     componentDidMount() {
-        console.log(this.props.playlist)
-        this.props.fetchPlaylist(this.props.playlist.id);
+        this.props.fetchPlaylist(this.props.match.params.playlistId);
     }
 
     // componentDidUpdate(prevProps) {
@@ -24,7 +23,7 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
-
+        console.log(this.props.playlist);
         if (this.props.playlist === {}) {
             return null;
         } else {
@@ -33,13 +32,14 @@ class PlaylistShow extends React.Component {
                     <h2 className="playlist-title">
                         {playlist.title}
                     </h2>
+                    {/* <div>{playlist.songs}</div> */}
                     <ul className="song-list">
-                        {/* {playlist.songs.map(song => 
+                        {this.props.playlist.songs ? playlist.songs.map(song => 
                         <li>
                             <Track key={song.id} track={song}/> 
                         </li>
-                        )} */}
-                    </ul>
+                        ) : null}
+                    </ul> 
                 </section>
             );
         }    

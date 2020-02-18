@@ -6,7 +6,7 @@ import Playlist from './playlist';
 
 const mapStateToProps = (state) => {
     return {
-        playlists: state.entities.playlists
+        playlists: state.entities.playlists.all
     };
 };
 

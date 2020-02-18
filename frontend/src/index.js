@@ -8,7 +8,7 @@ import configureStore from "./store/store";
 import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
-import { getPlaylists } from './util/playlist_api_util';
+import { getPlaylists, getPlaylist } from './util/playlist_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     window.getState = store.getState();
     window.getPlaylists = getPlaylists;
-
+    window.getPlaylist = getPlaylist;
     ReactDOM.render(<Root store={store} />, root);
 });

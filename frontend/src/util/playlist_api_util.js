@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const getPlaylists = () => {
-    return axios.get('/api/playlists')
+  return axios.get('/api/playlists')
 };
 
-export const getPlaylist = (playlist_id) => {
-  return axios.get(`/api/playlists/${playlist_id}`)
+export const getPlaylist = playlistId => {
+  return axios.get(`/api/playlists/${playlistId}`)
 }
 
 // export const getFollowedPlaylists = (id) => {

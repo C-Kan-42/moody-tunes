@@ -18,11 +18,11 @@ class Playlist extends React.Component {
 
   render() {
     const { playlist } = this.props; 
-    console.log(playlist);
+    // console.log(playlist);
     if (!playlist) return null;
     return(
       <li className="playlist-item" >
-        <Link to={`/playlists/${playlist.id}`}>
+        <Link to={`/playlists/${playlist._id}`}>
         {/* check HOW TO REFERENCE mongo ids */}
           <h2>{playlist.title}</h2>
           <ul className="playlist-body">

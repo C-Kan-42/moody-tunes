@@ -7,7 +7,8 @@ export const receiveReactions = reactions => ({
     reactions
 });
 
-export const fetchReactions = () => dispatch =>
+export const fetchReactions = () => dispatch => (
     getReactions()
         .then(reactions => dispatch(receiveReactions(reactions)))
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+);

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import PlaylistShow from './playlist_show';
 import { fetchPlaylist } from '../../actions/playlist_actions';
 
-const mSTP = (state, ownProps) => {
-    const playlist = state.entities.playlists[ownProps.match.params.playlistId];
-
-    return { playlist };
+const mSTP = (state) => {
+    return {
+        playlist: state.entities.playlists.currentPlaylist
+    }
 };
 
 const mDTP = (dispatch) => ({

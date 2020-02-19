@@ -44,7 +44,7 @@ class Reactions extends React.Component{
                     </li>
                     <li className="button-component">
                         {this.state.count}
-                        <button onClick={this.updateReactionCount}>😢</button>
+                        <button onClick={this.updateReactionCount}>&#128549;</button>
                     </li>
                 </ul>
             </div>      

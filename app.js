@@ -10,7 +10,7 @@ const passport = require("passport");
 const reactions = require("./routes/api/reactions");
 const songs = require("./routes/api/songs"); 
 const path = require("path");
-require('dotenv').config();
+// require('dotenv').config();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));

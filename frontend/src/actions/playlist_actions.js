@@ -1,4 +1,7 @@
-import { getPlaylist, getPlaylists, getFollowedPlaylists } from '../util/playlist_api_util';
+import { getPlaylist, 
+    getPlaylists, 
+    // getFollowedPlaylists 
+} from '../util/playlist_api_util';
 
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';

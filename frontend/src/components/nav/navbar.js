@@ -19,7 +19,9 @@ class NavBar extends React.Component {
         if(this.props.loggedIn) {
             return (
                 <nav className="header-group">
-                    <h2>{this.props.currentUser ? this.props.currentUser.username : null}</h2>
+                    <h2 className="header-name">
+                        {this.props.currentUser ? this.props.currentUser.username : null}
+                    </h2>
                     &nbsp;&nbsp;
                     <button className="header-button" onClick={this.logoutUser}>log out</button>
                 </nav>

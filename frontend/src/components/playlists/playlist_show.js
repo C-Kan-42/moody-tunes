@@ -23,6 +23,14 @@ class PlaylistShow extends React.Component {
     //     }
     // }
 
+    // var updatePlaylistStats = {
+
+    // }
+
+    // reactOnPlaylist(event) {
+
+    // }
+
     render() {
         const {playlist} = this.props;
         // console.log(this.props.playlist);
@@ -42,12 +50,10 @@ class PlaylistShow extends React.Component {
                         </li>
                         ) : null}
                     </ul> 
-                    <div>
-                        {/* {playlist.reactions ? playlist.reactions.map(reaction => Object.entries(reaction).forEach(([key,value]) => console.log(`ObjectId(${(key)})`))) : null} */}
-                        {/* // Object.entries(obj).forEach(([key, value]) => console.log(`${key}: ${value}`)) */}
-                    </div>
-                    <div>
-                        {this.props.reactions.map(reaction => console.log(reaction))}
+                    <div className="reaction-buttons">
+                        {/* <button onClick={this.reactOnPlaylist(event)}>
+                            😊
+                        </button> */}
                     </div>
                     < Reactions />
                 </section>

@@ -40,12 +40,14 @@ router.post("/", (req, res) => {
 })
 
 //To update reaction count
-router.post('/:playlistId', (req, res, next) => {
+router.post('/:playlistId/react', (req, res, next) => {
+    const action = req.body.action;
+    const counter = action === 'happy' ? 1 : -1;
     Playlist.findbyId(req.params.playlistId, function(err, playlist) {
         if (err) {
             console.log(err)
         } else {
-            playlist.update({ $inc: {"reactions.happy": 1}}).exec()
+            playlist.update({ $inc: {"reactions.happy": counter}}).exec()
                 .then(result => {
                     res.status(200).json({message: 'reacted'});})
                 .catch(err => {

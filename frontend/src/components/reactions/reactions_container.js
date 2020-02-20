@@ -4,11 +4,11 @@ import {fetchReactions} from '../../actions/reaction_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    reactions: Object.values(state.entities.reactions)
+    reactions: state.entities.reactions
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchReactions: () => dispatch(fetchReactions())
   };

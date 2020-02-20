@@ -15,6 +15,7 @@ const FollowsReducer = (state = { all: {}, user: {}}, action) => {
         case RECEIVE_USER_FOLLOWS:
             newState.user = action.follows.data;
             return newState;
+            
         default:
             return state;
     }

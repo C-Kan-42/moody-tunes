@@ -39,4 +39,21 @@ router.post("/", (req, res) => {
         .catch(err => res.status(400).json({ noplaylistfound: "No playlist found with that ID "}))
 })
 
+//To update reaction count
+router.post('/:playlistId/react', (req, res, next) => {
+    const action = req.body.action;
+    const counter = action === 'happy' ? 1 : -1;
+    Playlist.findbyId(req.params.playlistId, function(err, playlist) {
+        if (err) {
+            console.log(err)
+        } else {
+            playlist.update({ $inc: {"reactions.happy": counter}}).exec()
+                .then(result => {
+                    res.status(200).json({message: 'reacted'});})
+                .catch(err => {
+                    res.status(500).json({error:err})});
+        }
+    })
+      
+})
 module.exports = router;

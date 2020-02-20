@@ -4,12 +4,14 @@ class Reactions extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            // "happy": 0,
-            // "sad": 0
             count: 0
         }
         this.updateReactionCount = this.updateReactionCount.bind(this);
     }
+
+    // componentDidMount() {
+    //     this.props.fetchReactions();
+    // }
 
     updateReactionCount() {
         // if (mood === "happy") {
@@ -47,6 +49,9 @@ class Reactions extends React.Component{
                         <button onClick={this.updateReactionCount}>&#128549;</button>
                     </li>
                 </ul>
+                <div>
+                    {this.props.reactions}
+                </div>
             </div>      
         );
     }

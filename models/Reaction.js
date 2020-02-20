@@ -6,6 +6,10 @@ const ReactionSchema = new Schema({
         type: String,
         required: true
     },
+    unicode: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

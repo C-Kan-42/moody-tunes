@@ -14,6 +14,7 @@ class PlaylistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
+        this.props.fetchReactions();
     }
 
     // componentDidUpdate(prevProps) {
@@ -22,19 +23,26 @@ class PlaylistShow extends React.Component {
     //     }
     // }
 
+    // var updatePlaylistStats = {
+
+    // }
+
+    // reactOnPlaylist(event) {
+
+    // }
+
     render() {
         const {playlist} = this.props;
-        console.log(this.props.playlist);
+        // console.log(this.props.playlist);
         if (this.props.playlist === {}) {
             return null;
         } else {
-            // const reactions = Object.keys(playlist.reactions);
+            console.log(playlist.reactions)
             return(
                 <section className="playlist-show-detail">
                     <h2 className="playlist-title">
                         {playlist.title}
                     </h2>
-                    {/* <div>{playlist.songs}</div> */}
                     <ul className="song-list">
                         {this.props.playlist.songs ? playlist.songs.map(song => 
                         <li>
@@ -42,8 +50,10 @@ class PlaylistShow extends React.Component {
                         </li>
                         ) : null}
                     </ul> 
-                    <div>
-                        {/* {reactions.map(reaction => console.log(reaction.mood))}              */}
+                    <div className="reaction-buttons">
+                        {/* <button onClick={this.reactOnPlaylist(event)}>
+                            😊
+                        </button> */}
                     </div>
                     < Reactions />
                 </section>

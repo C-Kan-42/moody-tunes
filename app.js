@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const db = require('./config/keys_prod').mongoURI;
+// const db = require('./config/keys_prod').mongoURI;
 const users = require("./routes/api/users");
 const playlists = require("./routes/api/playlists");
 const follows = require("./routes/api/follows");

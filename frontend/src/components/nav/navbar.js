@@ -1,5 +1,6 @@
 import React from 'react';
 import './navbar.scss';
+import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -35,13 +36,14 @@ class NavBar extends React.Component {
             )
             
         }
-        
     };
 
     render() {
         return (
             <nav className="navbar">
-                <h1 className="moody-tunes">MOODY TUNES</h1>
+                <Link to ={`/playlists`}>
+                    <h1 className="moody-tunes">MOODY TUNES</h1>
+                </Link>
                 {this.sessionLinks()}
             </nav>
         );

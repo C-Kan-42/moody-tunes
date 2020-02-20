@@ -49,7 +49,7 @@ class PlaylistShow extends React.Component {
                     <div>
                         {this.props.reactions.map(reaction => console.log(reaction))}
                     </div>
-                    {/* < Reactions /> */}
+                    < Reactions />
                 </section>
             );
         }    

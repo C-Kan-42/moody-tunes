@@ -14,6 +14,7 @@ class PlaylistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
+        this.props.fetchReactions();
     }
 
     // componentDidUpdate(prevProps) {
@@ -24,17 +25,16 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
-        console.log(this.props.playlist);
+        // console.log(this.props.playlist);
         if (this.props.playlist === {}) {
             return null;
         } else {
-            // const reactions = Object.keys(playlist.reactions);
+            console.log(playlist.reactions)
             return(
                 <section className="playlist-show-detail">
                     <h2 className="playlist-title">
                         {playlist.title}
                     </h2>
-                    {/* <div>{playlist.songs}</div> */}
                     <ul className="song-list">
                         {this.props.playlist.songs ? playlist.songs.map(song => 
                         <li>
@@ -43,9 +43,13 @@ class PlaylistShow extends React.Component {
                         ) : null}
                     </ul> 
                     <div>
-                        {/* {reactions.map(reaction => console.log(reaction.mood))}              */}
+                        {/* {playlist.reactions ? playlist.reactions.map(reaction => Object.entries(reaction).forEach(([key,value]) => console.log(`ObjectId(${(key)})`))) : null} */}
+                        {/* // Object.entries(obj).forEach(([key, value]) => console.log(`${key}: ${value}`)) */}
                     </div>
-                    < Reactions />
+                    <div>
+                        {this.props.reactions.map(reaction => console.log(reaction))}
+                    </div>
+                    {/* < Reactions /> */}
                 </section>
             );
         }    

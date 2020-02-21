@@ -14,6 +14,7 @@ export const receivePlaylist = playlist => ({
     playlist
 });
 
+
 // export const receiveFollowedPlaylists = playlists => ({
 //     type: RECEIVE_FOLLOWED_PLAYLISTS,
 //     playlists

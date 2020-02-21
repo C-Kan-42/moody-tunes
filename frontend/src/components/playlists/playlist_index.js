@@ -38,7 +38,9 @@ class PlaylistIndex extends React.Component{
         return (
             <section className="playlist-index-container">
                 {this.props.playlists.length > 0 ? 
-                <Route path="/playlist/:playlistId" component={PlaylistShowContainer} /> : null}
+                    <Route path="/playlist/:playlistId" 
+                        component={PlaylistShowContainer} /> : null
+                }
                 <ul className="playlist-index">
                     {this.props.playlists.length > 0 ? 
                         (this.props.playlists.map(playlist =>

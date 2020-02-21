@@ -23,7 +23,7 @@ export const removeFollow = followId => ({
     followId
 });
 
-export const fetchFollows = () => (
+export const fetchFollows = () => dispatch => (
     getFollows()
         .then(follows => dispatch(receiveFollows(follows)))
         .catch(err => console.log(err))
@@ -35,7 +35,7 @@ export const fetchUserFollows = id => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const destroyFollow = followId => dispatch => (
+export const deleteFollow = followId => dispatch => (
     destroyFollow(followId)
         .then(followId => dispatch(removeFollow(followId)))
         .catch(err => console.log(err))

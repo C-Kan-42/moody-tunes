@@ -16,6 +16,10 @@ export const login = userData => {
     return axios.post("/api/users/login", userData);
 };
 
+export const fetchUser = userId => {
+    return axios.get(`/api/users/${ userId }`);
+};
+
 // export const createDemoUser = () => {
 //     return axios.post("/api/users/register", )
 // }

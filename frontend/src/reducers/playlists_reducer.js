@@ -1,6 +1,6 @@
-import { RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, RECEIVE_FOLLOWED_PLAYLISTS } from '../actions/playlist_actions';
+import { RECEIVE_PLAYLISTS, RECEIVE_PLAYLIST, RECEIVE_FOLLOWED_PLAYLISTS, RECEIVE_REACTION } from '../actions/playlist_actions';
 
-const PlaylistsReducer = (state = {all: [], currentPlaylist: {}}, action) => {
+const PlaylistsReducer = (state = {all: [], currentPlaylist: {}, reaction: null}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
@@ -13,6 +13,9 @@ const PlaylistsReducer = (state = {all: [], currentPlaylist: {}}, action) => {
         // case RECEIVE_FOLLOWED_PLAYLISTS:
         //     newState.followed = action.playlists.data;
         //     return newState;
+        case RECEIVE_REACTION:
+            newState.reaction = action.reaction.data;
+            return newState;
         default:
             return state;
     }

@@ -8,7 +8,8 @@ class PlaylistShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentPlaylist: {}
+            currentPlaylist: {},
+            reaction: null
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
@@ -16,7 +17,7 @@ class PlaylistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
-        this.props.fetchReactions();
+        // this.props.fetchReactions();
     }
 
     // componentDidUpdate(prevProps) {
@@ -25,18 +26,20 @@ class PlaylistShow extends React.Component {
     //     }
     // }
 
-    
-
-    reactOnPlaylist(event) {
+    reactOnPlaylist(e) {
         // var updatePlaylistStats = {
         //     react: function(playlistId)  {
         //         document.querySelector("react-counts").textContent++;
         //     }
         // };
         var playlistId = this.props.playlist._id;
-        var action = event.target.textContent.trim();
+        e.preventDefault();
+        // var action = e.target.textContent.trim();
+        const reaction = Object.assign("happy", this.state.reaction);
         document.querySelector("#react-counts").textContent++;
-        axios.post('/playlists/' + playlistId + '/react', {action: action});
+        const reactionData = {id: playlistId, reaction: "happy"}
+        // axios.post('/playlists/' + playlistId + '/react', {action: action});
+        this.props.sendReaction(reactionData);
     }
 
     render() {
@@ -60,7 +63,7 @@ class PlaylistShow extends React.Component {
                         ) : null}
                     </ul> 
                     <div className="reaction-buttons">
-                        <button onClick={this.reactOnPlaylist} data-post-id={playlist._id}>
+                        <button onClick={this.reactOnPlaylist}>
                             😊
                         </button>
                         <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span>

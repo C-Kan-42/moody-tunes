@@ -8,8 +8,8 @@ export const getPlaylist = playlistId => {
   return axios.get(`/api/playlists/${playlistId}`)
 }
 
-export const postReaction = playlistId => {
-  return axios.post(`/api/playlists/${playlistId}/react`)
+export const postReaction = (reactionData) => {
+  return axios.post(`/api/playlists/${reactionData.id}/react`, reactionData.reaction)
 }
 
 // export const getFollowedPlaylists = (id) => {

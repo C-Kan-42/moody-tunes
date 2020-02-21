@@ -7,3 +7,7 @@ export const getFollows = () => {
 export const getUserFollows = id => {
   return axios.get(`/api/follows/user/${id}`);
 };
+
+export const destroyFollow = followId => {
+  return axios.get(`/api/follows/${followId}`)
+};

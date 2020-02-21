@@ -1,6 +1,7 @@
 import {
     RECEIVE_FOLLOWS,
-    RECEIVE_USER_FOLLOWS
+    RECEIVE_USER_FOLLOWS,
+    REMOVE_FOLLOW
 } from '../actions/follow_actions';
 
 const FollowsReducer = (state = { all: {}, user: {}}, action) => {
@@ -14,6 +15,10 @@ const FollowsReducer = (state = { all: {}, user: {}}, action) => {
 
         case RECEIVE_USER_FOLLOWS:
             newState.user = action.follows.data;
+            return newState;
+
+        case REMOVE_FOLLOW:
+            delete newState[action.followId];
             return newState;
             
         default:

@@ -8,8 +8,8 @@ class PlaylistShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentPlaylist: {},
-            reaction: null
+            // currentPlaylist: {},
+            reaction: ""
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
@@ -32,10 +32,11 @@ class PlaylistShow extends React.Component {
         //         document.querySelector("react-counts").textContent++;
         //     }
         // };
-        var playlistId = this.props.playlist._id;
+  
         e.preventDefault();
+        var playlistId = this.props.playlist._id;
         // var action = e.target.textContent.trim();
-        const reaction = Object.assign("happy", this.state.reaction);
+        const reaction = Object.assign("", this.state);
         document.querySelector("#react-counts").textContent++;
         const reactionData = {id: playlistId, reaction: "happy"}
         // axios.post('/playlists/' + playlistId + '/react', {action: action});

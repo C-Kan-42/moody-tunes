@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 })
 
 //To update reaction count
-router.post('/:playlistId/react', (req, res, next) => {
+router.patch('/:playlistId/react', (req, res, next) => {
     // const action = req.body.reaction;
     // const counter = action === 'happy' ? 1 : -1;
   
@@ -50,13 +50,6 @@ router.post('/:playlistId/react', (req, res, next) => {
         .catch(err => {
             res.status(500).json({error: err})});
 
-    // function(err, playlist) {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-           
-    //     }
-    // })
 })
 
 module.exports = router;

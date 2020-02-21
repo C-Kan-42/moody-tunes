@@ -9,7 +9,7 @@ export const getPlaylist = playlistId => {
 }
 
 export const postReaction = (reactionData) => {
-  return axios.post(`/api/playlists/${reactionData.id}/react`, reactionData.reaction)
+  return axios.patch(`/api/playlists/${reactionData.id}/react`, reactionData.reaction)
 }
 
 // export const getFollowedPlaylists = (id) => {

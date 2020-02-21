@@ -1,7 +1,7 @@
 import React from "react";
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 
 import NavBarContainer from "../nav/navbar_container";

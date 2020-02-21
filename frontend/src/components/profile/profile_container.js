@@ -9,14 +9,14 @@ const mapStateToProps = (state, ownProps) => {
     return {
         follows: state.entities.follows,
         sessionUserId: state.session.currentUserId,
-        user: state.entities.users[ownProps.match.params.id]
+        // user: state.entities.users[ownProps.match.params.id]
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         fetchFollows: () => dispatch(FollowActions.fetchFollows()),
-        destroyFollow: followId => dispatch(FollowActions.destroyFollow(followId)),
+        deleteFollow: followId => dispatch(FollowActions.deleteFollow(followId)),
         // fetchUser: userId => dispatch(SessionActions.fetchUser(userId))
     };
 };

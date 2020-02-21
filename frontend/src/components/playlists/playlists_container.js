@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import Playlists from './playlist_index';
 import {fetchPlaylist, fetchPlaylists} from '../../actions/playlist_actions';
 import PlaylistIndex from './playlist_index';
-import Playlist from './playlist';
+// import Playlist from './playlist';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPlaylists: () => dispatch(fetchPlaylists())
+        fetchPlaylists: () => dispatch(fetchPlaylists()),
+        fetchPlaylist: (playlist_id) => dispatch(fetchPlaylist(playlist_id))
     };
 };
 

@@ -3,11 +3,13 @@ const Schema = mongoose.Schema;
 
 const FollowSchema = new Schema({
     userId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
+        ref: 'users',
         required: true
     },
     playlistId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
+        ref: 'playlists',
         reqiured: true
     },
     date: {

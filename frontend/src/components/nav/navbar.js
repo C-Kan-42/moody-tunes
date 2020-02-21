@@ -18,12 +18,24 @@ class NavBar extends React.Component {
     sessionLinks() {
         if(this.props.loggedIn) {
             return (
-                <nav className="header-group">
-                    <h2>{this.props.currentUser ? this.props.currentUser.username : null}</h2>
-                    &nbsp;&nbsp;
-                    <button className="header-button" onClick={this.logoutUser}>log out</button>
-                </nav>
-            )
+              <nav className="header-group">
+                <h2 className="header-name">
+                  {this.props.currentUser
+                    ? this.props.currentUser.username
+                    : null}
+                </h2>
+                &nbsp;&nbsp;
+                <Link to={`/profile`}>
+                    <button className="header-button">
+                        profile
+                    </button>
+                </Link>
+                &nbsp;&nbsp;
+                <button className="header-button" onClick={this.logoutUser}>
+                  log out
+                </button>
+              </nav>
+            );
         } else {
             return (
                 <nav className="login-signup">

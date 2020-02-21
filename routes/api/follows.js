@@ -7,8 +7,27 @@ const jwt = require("jsonwebtoken");
 router.get('/', (req, res) => {
     Follow.find()
         .sort({ date: -1 })
-        .then(playlists => res.json(playlists))
-        .catch(err => res.status(404).json({ noplaylistsfound: 'No playlists found' }));
+        .then(follows => res.json(follows))
+        .catch(err => res.status(404).json({ noplaylistsfound: 'No followed playlists found' }));
+});
+
+router.get("/user/:userId", (req, res) => {
+    Follow.find({ user: req.params.userId })
+      .then(follows => res.json(follows))
+      .catch(err => res
+          .status(404)
+          .json({ noplaylistsfound: "No followed playlists found" })
+      );
+});
+
+router.get("/:id", (req, res) => {
+    Follow.findById(req.params.id)
+      .then(follow => res.json(follow))
+      .catch(err =>
+        res
+          .status(404)
+          .json({ noplaylistsfound: "No followed playlists found" })
+      );
 });
 
 router.post('/', 
@@ -28,7 +47,7 @@ router.post('/',
 
 router.delete('/:playlistId', (req, res) => {
     Follow.findById(req.params.id)
-        .then(playlists => res.json(playlists))
+        .then(follows => res.json(follows))
         .catch(err => 
             res.status(404).json({ noplaylistfound: "Playlist was not unfollowed" })
         );

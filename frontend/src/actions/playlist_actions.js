@@ -39,11 +39,11 @@ export const fetchPlaylist = playlist_id => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const sendReaction = reactionData => dispatch => (
+export const sendReaction = (reactionData) => dispatch => (
     postReaction(reactionData)
         .then(res => dispatch(receiveReaction(res.data)))
         .catch(err => console.log(err))
-)
+);
 
 // export const fetchFollowedPlaylists = () => dispatch =>
 //     getFollowedPlaylists(id)

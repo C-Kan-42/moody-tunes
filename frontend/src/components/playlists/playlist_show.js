@@ -14,6 +14,7 @@ class PlaylistShow extends React.Component {
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
+        this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
     };
 
     componentDidMount() {
@@ -37,10 +38,17 @@ class PlaylistShow extends React.Component {
         e.preventDefault();
         var playlistId = this.props.playlist._id;
         // var action = e.target.textContent.trim();
-        const reaction = Object.assign("", this.state);
+        // const reaction = Object.assign("", this.state);
         document.querySelector("#react-counts").textContent++;
         const reactionData = {id: playlistId, reaction: "happy"}
         // axios.post('/playlists/' + playlistId + '/react', {action: action});
+        this.props.sendReaction(reactionData);
+    }
+
+    reactOnPlaylistSad(e) {
+        e.preventDefault();
+        var playlistId = this.props.playlist._id;
+        const reactionData = {id: playlistId, reaction: "sad"}
         this.props.sendReaction(reactionData);
     }
 
@@ -75,6 +83,12 @@ class PlaylistShow extends React.Component {
                                 😊
                             </button>
                             <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span>
+                                {console.log(playlist.reactions)}
+                            <button onClick={this.reactOnPlaylistSad}>
+                                😢
+                            </button>
+                            <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.sad : null}</span>
+
                         </div>
                     </div>
                     {/* < Reactions /> */}

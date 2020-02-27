@@ -1,0 +1,28 @@
+.profile-container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    // text-transform: uppercase;
+    // color: white;
+    background-image: linear-gradient(black, #863CD6);
+    background-size: cover;
+}
+
+.profile-gretting {
+    font-size: 32px;
+    margin-left: 3.5%;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bolder;
+    color:#FDB8FF;
+    text-shadow:2px 2px 0px #528ecc;
+}
+
+.profile-follows {
+    font-size: 30px;
+    margin-left: 3.5%;
+    margin-top: 3%;
+    font-family: 'Heebo', sans-serif;
+    font-weight: bolder;
+    color:#FDB8FF;
+    text-shadow:2px 2px 0px #528ecc;
+}

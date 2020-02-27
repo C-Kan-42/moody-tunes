@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 import axios from 'axios';
 import Track from '../track/track';
 import Reactions from '../reactions/reactions';
+import './playlist-show.scss';
 
 class PlaylistShow extends React.Component {
     constructor(props) {
@@ -53,21 +54,28 @@ class PlaylistShow extends React.Component {
             console.log(playlist.reactions)
             return(
                 <section className="playlist-show-detail">
-                    <h2 className="playlist-title">
-                        {playlist.title}
-                    </h2>
-                    <ul className="song-list">
-                        {this.props.playlist.songs ? playlist.songs.map(song => 
-                        <li>
-                            <Track key={song._id} track={song}/> 
-                        </li>
-                        ) : null}
-                    </ul> 
-                    <div className="reaction-buttons">
-                        <button onClick={this.reactOnPlaylist}>
-                            😊
-                        </button>
-                        <span id="react-counts">{playlist.reactions ? playlist.reactions.happy : null}</span>
+                    <div className="playlist-button-outer">
+                        <div className="playlist-button-container">
+                            <button className="playlist-detail+f">+ Follow</button>
+                        </div>
+                    </div>
+                    <div className="playlist-details">
+                        <h2 className="playlist-title">
+                            {playlist.title}
+                        </h2>
+                        <ul className="song-list">
+                            {this.props.playlist.songs ? playlist.songs.map(song => 
+                            <li>
+                                <Track key={song._id} track={song}/> 
+                            </li>
+                            ) : null}
+                        </ul> 
+                        <div className="reaction-buttons">
+                            <button onClick={this.reactOnPlaylist}>
+                                😊
+                            </button>
+                            <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span>
+                        </div>
                     </div>
                     {/* < Reactions /> */}
                 </section>

@@ -67,7 +67,7 @@ class PlaylistShow extends React.Component {
                         <button onClick={this.reactOnPlaylist}>
                             😊
                         </button>
-                        <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span>
+                        <span id="react-counts">{playlist.reactions ? playlist.reactions.happy : null}</span>
                     </div>
                     {/* < Reactions /> */}
                 </section>

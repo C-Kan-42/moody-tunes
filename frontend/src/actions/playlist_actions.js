@@ -12,6 +12,7 @@ export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 // export const RECEIVE_FOLLOWED_PLAYLISTS = 'RECEIEVE_FOLLOWED_PLAYLISTS';
 export const RECEIVE_REACTION = 'RECEIVE_REACTION';
+export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 
 export const receivePlaylists = playlists => ({
     type: RECEIVE_PLAYLISTS,
@@ -29,7 +30,7 @@ export const receiveReaction = reaction => ({
 });
 
 export const receiveFollow = follow => ({
-    type: RECEIVE_REACTION,
+    type: RECEIVE_FOLLOW,
     follow
 });
 // export const receiveFollowedPlaylists = playlists => ({

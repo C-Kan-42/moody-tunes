@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import Track from '../track/track';
 import Reactions from '../reactions/reactions';
 import './playlist-show.scss';
@@ -14,6 +14,7 @@ class PlaylistShow extends React.Component {
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
+        this.followPlaylist = this.followPlaylist.bind(this);
     };
 
     componentDidMount() {
@@ -44,6 +45,12 @@ class PlaylistShow extends React.Component {
         this.props.sendReaction(reactionData);
     }
 
+    followPlaylist(e) {
+        console.log('follow button clicked')
+        e.preventDefault();
+        let playlistId = this.props.playlist._id;
+    }
+
     render() {
         const {playlist} = this.props;
         console.log(playlist.reactions)
@@ -56,7 +63,9 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail+f">+ Follow</button>
+                            <button className="playlist-detail+f" onClick={this.followPlaylist}>
+                                + Follow
+                            </button>
                         </div>
                     </div>
                     <div className="playlist-details">

@@ -1,5 +1,10 @@
 
-import { getPlaylist, getPlaylists, getFollowedPlaylists, postReaction } from '../util/playlist_api_util';
+import { getPlaylist, 
+    getPlaylists, 
+    getFollowedPlaylists, 
+    postReaction,
+    postFollow 
+} from '../util/playlist_api_util';
 import { RECEIVE_REACTIONS } from './reaction_actions';
 
 
@@ -21,7 +26,12 @@ export const receivePlaylist = playlist => ({
 export const receiveReaction = reaction => ({
     type: RECEIVE_REACTION,
     reaction
-})
+});
+
+export const receiveFollow = follow => ({
+    type: RECEIVE_REACTION,
+    follow
+});
 // export const receiveFollowedPlaylists = playlists => ({
 //     type: RECEIVE_FOLLOWED_PLAYLISTS,
 //     playlists
@@ -42,6 +52,12 @@ export const fetchPlaylist = playlist_id => dispatch => (
 export const sendReaction = reactionData => dispatch => (
     postReaction(reactionData)
         .then(res => dispatch(receiveReaction(res.data)))
+        .catch(err => console.log(err))
+)
+
+export const sendFollow = followData => dispatch => (
+    postFollow(followData)
+        .then(res => dispatch(receiveFollow(res.data)))
         .catch(err => console.log(err))
 )
 

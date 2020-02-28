@@ -2,7 +2,8 @@
 import { RECEIVE_PLAYLISTS, 
     RECEIVE_PLAYLIST, 
     RECEIVE_FOLLOWED_PLAYLISTS, 
-    RECEIVE_REACTION 
+    RECEIVE_REACTION,
+    RECEIVE_FOLLOW
 } from '../actions/playlist_actions';
 
 
@@ -21,6 +22,9 @@ const PlaylistsReducer = (state = {all: [], currentPlaylist: {}, reaction: ""}, 
         //     return newState;
         case RECEIVE_REACTION:
             newState.reaction = action.reaction;
+            return newState;
+        case RECEIVE_FOLLOW:
+            newState.follow = action.follow;
             return newState;
         default:
             return state;

@@ -40,7 +40,7 @@ class PlaylistShow extends React.Component {
         // var action = e.target.textContent.trim();
         const reaction = Object.assign("", this.state);
         document.querySelector("#react-counts").textContent++;
-        const reactionData = {id: playlistId, reaction: "happy"}
+        const reactionData = {id: playlistId, reaction: "happy"};
         // axios.post('/playlists/' + playlistId + '/react', {action: action});
         this.props.sendReaction(reactionData);
     }
@@ -49,6 +49,8 @@ class PlaylistShow extends React.Component {
         console.log('follow button clicked')
         e.preventDefault();
         let playlistId = this.props.playlist._id;
+        const followData = {id: playlistId, follows: "true"};
+        this.props.sendFollow(followData);
     }
 
     render() {

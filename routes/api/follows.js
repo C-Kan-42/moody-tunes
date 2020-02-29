@@ -55,7 +55,7 @@ router.delete('/:playlistId', (req, res) => {
 
 router.post('/:playlistId/follow', (req, res, next) => {
 
-    Playlist.updateOne({ _id: req.params.playlistId }, { $inc: { "follows": 1 } }).exec()
+    Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
         .then(res => {
             res.status(200).json({ message: 'followed' });
         })

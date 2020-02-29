@@ -13,7 +13,7 @@ export const postReaction = (reactionData) => {
 };
 
 export const postFollow = (followData) => {
-  return axios.post(`/api/playlists/${followData.id}/follow`, followData.reaction)
+  return axios.post(`/api/playlists/${followData.id}/follow`, followData.follow)
 };
 
 // export const getFollowedPlaylists = (id) => {

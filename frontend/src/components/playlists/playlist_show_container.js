@@ -7,7 +7,7 @@ import { fetchReactions } from '../../actions/reaction_actions';
 const mSTP = (state) => {
     return {
         playlist: state.entities.playlists.currentPlaylist,
-        // reaction: state.entities.playlists.reaction
+        // reactions: state.entities.playlists.reaction
     }
 };
 

@@ -44,7 +44,7 @@ export const signup = (userData) => dispatch =>
         dispatch(receiveCurrentUser(decoded));
       })
       .catch(err => {
-        dispatch(receiveErrors(err.responseJSON));
+        dispatch(receiveErrors(err.response.data));
       }
 );
 
@@ -59,7 +59,7 @@ export const login = userData => dispatch =>
       dispatch(receiveCurrentUser(decoded));
       })
       .catch(err => {
-      dispatch(receiveErrors(err.responseJSON));
+      dispatch(receiveErrors(err.response.data));
 });
 
 export const logout = () => dispatch => {

@@ -40,11 +40,12 @@ export const signup = (userData) => dispatch =>
         const { token } = res.data;
         localStorage.setItem("jwtToken", token);
         APIUtil.setAuthToken(token);
-        const decoded = jwt_decode(token);
+        const decoded = jwt_decode(token, {header: true});
         dispatch(receiveCurrentUser(decoded));
       })
-      .catch(err => 
-        dispatch(receiveErrors(err.responseJSON))
+      .catch(err => {
+        dispatch(receiveErrors(err.responseJSON));
+      }
 );
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
@@ -54,7 +55,7 @@ export const login = userData => dispatch =>
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       APIUtil.setAuthToken(token);
-      const decoded = jwt_decode(token);
+      const decoded = jwt_decode(token, {header: true});
       dispatch(receiveCurrentUser(decoded));
       })
       .catch(err => {

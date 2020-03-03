@@ -23,6 +23,7 @@ export default function(state = initialState, action) {
                 isAuthenticated: false,
                 currentUser: null
             };
+        
         default:
             return state;
     }

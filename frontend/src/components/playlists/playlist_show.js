@@ -88,8 +88,8 @@ class PlaylistShow extends React.Component {
                                 😊
                             </button>
                             {/* {this.props.playlist.reactions ? <div id="react-counts-happy">{playlist.reactions.happy ? playlist.reactions.happy: null}</span> : null} */}
-                            {this.props.playlist.reactions ? <div>{console.log(playlist.reactions.happy)}</div> : null}
-
+                            {this.props.playlist.reactions ? <div>{console.log(playlist.reactions[0].happy)}</div> : null}
+                            {/* {I think playlist.reactions is an array for some reason, so you want have to index in to the 0th element, then reference happy} */}
                             <button onClick={this.reactOnPlaylistSad}>
                                 😢
                             </button>

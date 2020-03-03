@@ -11,10 +11,10 @@ const PlaylistSchema = new Schema({
         ref: "songs",
         required: true
     }],
-    reactions: [{
+    reactions: {
         type: Object,
         ref: "reactions"
-    }],
+    },
     spotifyId: { // Added this in
         type: String,
         required: true

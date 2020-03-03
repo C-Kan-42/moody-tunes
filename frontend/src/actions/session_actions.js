@@ -40,7 +40,7 @@ export const signup = (userData) => dispatch =>
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);
       APIUtil.setAuthToken(token);
-      const decoded = jwt_decode(token, {header: true});
+      const decoded = jwt_decode(token);
       dispatch(receiveCurrentUser(decoded));
     }, err => (
       dispatch(receiveErrors(err.response.data))
@@ -53,7 +53,7 @@ export const login = userData => dispatch =>
     const { token } = res.data;
     localStorage.setItem("jwtToken", token);
     APIUtil.setAuthToken(token);
-    const decoded = jwt_decode(token, {header: true});
+    const decoded = jwt_decode(token);
     dispatch(receiveCurrentUser(decoded));
     }, err => (
       dispatch(receiveErrors(err.response.data))

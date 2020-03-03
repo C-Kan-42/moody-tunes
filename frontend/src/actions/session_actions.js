@@ -44,7 +44,7 @@ export const signup = (userData) => dispatch =>
         dispatch(receiveCurrentUser(decoded));
       })
       .catch(err => 
-        dispatch(receiveErrors(err.response))
+        dispatch(receiveErrors(err.responseJSON))
 );
 
 // Upon login, set the session token and dispatch the current user. Dispatch errors on failure.
@@ -58,7 +58,7 @@ export const login = userData => dispatch =>
       dispatch(receiveCurrentUser(decoded));
       })
       .catch(err => {
-      dispatch(receiveErrors(err.response));
+      dispatch(receiveErrors(err.responseJSON));
 });
 
 export const logout = () => dispatch => {
@@ -73,6 +73,6 @@ export const logout = () => dispatch => {
 export const fetchUser = userId => dispatch => {
   APIUtil.fetchUser(userId)
     .then(user => dispatch(receiveUser(user)))
-    .catch(err => dispatch(receiveErrors(err.response))
+    .catch(err => dispatch(receiveErrors(err.responseJSON))
   );
 }

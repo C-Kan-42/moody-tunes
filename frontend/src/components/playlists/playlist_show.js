@@ -9,8 +9,11 @@ class PlaylistShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // currentPlaylist: {},
-            reaction: ""
+            songs: [],
+            reactions: {
+                happy: 0,
+                sad: 0
+            }
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
@@ -84,8 +87,8 @@ class PlaylistShow extends React.Component {
                             <button onClick={this.reactOnPlaylist}>
                                 😊
                             </button>
-                            {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
-                            {/* <span id="react-counts-happy">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span> */}
+                            {/* {this.props.playlist.reactions ? <div id="react-counts-happy">{playlist.reactions.happy ? playlist.reactions.happy: null}</span> : null} */}
+                            {this.props.playlist.reactions ? <div>{console.log(playlist.reactions.happy)}</div> : null}
 
                             <button onClick={this.reactOnPlaylistSad}>
                                 😢

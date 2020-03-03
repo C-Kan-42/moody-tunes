@@ -19,7 +19,7 @@ class Profile extends React.Component {
         return (
             <div className="profile-container">
                 <h2 className="profile-gretting">
-                    Hi, {this.props.user.username ? this.props.user.username : null }
+                    {/* Hi, {this.props.user.username ? this.props.user.username : null } */}
                 </h2>
 
                 <h3 className="profile-follows">

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import Track from '../track/track';
 import Reactions from '../reactions/reactions';
 import './playlist-show.scss';
@@ -19,6 +19,7 @@ class PlaylistShow extends React.Component {
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
         this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
+
     };
 
     componentDidMount() {
@@ -50,12 +51,20 @@ class PlaylistShow extends React.Component {
         this.props.sendReaction(reactionData);
     }
 
+
     reactOnPlaylistSad(e) {
         e.preventDefault();
         var playlistId = this.props.playlist._id;
         const reactionData = {id: playlistId, reaction: "sad"}
         this.props.playlist.reactions ? document.querySelector("#react-counts-sad").textContent++ : console.log(null);
         this.props.sendReaction(reactionData);
+    }
+    followPlaylist(e) {
+        console.log('follow button clicked')
+        e.preventDefault();
+        let playlistId = this.props.playlist._id;
+        const followData = {id: playlistId, follows: "true"};
+        this.props.sendFollow(followData);
     }
 
     render() {
@@ -70,7 +79,9 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail+f">+ Follow</button>
+                            <button className="playlist-detail+f" onClick={this.followPlaylist}>
+                                + Follow
+                            </button>
                         </div>
                     </div>
                     <div className="playlist-details">

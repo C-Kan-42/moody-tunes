@@ -53,7 +53,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <nav className="navbar">
-                <Link to ={`/playlists`}>
+                <Link to={`/playlists`} style={ {textDecoration: 'none'} }>
                     <h1 className="moody-tunes">MOODY TUNES</h1>
                 </Link>
                 {this.sessionLinks()}

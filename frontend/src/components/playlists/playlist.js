@@ -22,7 +22,7 @@ class Playlist extends React.Component {
     if (!playlist) return null;
     return(
       <li className="playlist-item" >
-        <Link to={`/playlists/${playlist._id}`}>
+        <Link to={`/playlists/${playlist._id}`} style={{ textDecoration: 'none' }}>
         {/* check HOW TO REFERENCE mongo ids */}
           <h2>{playlist.title}</h2>
           <ul className="playlist-body">

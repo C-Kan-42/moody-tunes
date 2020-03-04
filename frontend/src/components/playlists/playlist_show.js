@@ -9,12 +9,17 @@ class PlaylistShow extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // currentPlaylist: {},
-            reaction: ""
+            songs: [],
+            title: "",
+            reactions: {
+                happy: 0,
+                sad: 0
+            }
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
-        this.followPlaylist = this.followPlaylist.bind(this);
+        this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
+
     };
 
     componentDidMount() {
@@ -38,13 +43,22 @@ class PlaylistShow extends React.Component {
         e.preventDefault();
         var playlistId = this.props.playlist._id;
         // var action = e.target.textContent.trim();
-        const reaction = Object.assign("", this.state);
-        document.querySelector("#react-counts").textContent++;
-        const reactionData = {id: playlistId, reaction: "happy"};
+        // const reaction = Object.assign("", this.state);
+        
+        this.props.playlist.reactions ? document.querySelector("#react-counts-happy").textContent++ : console.log(null);
+        const reactionData = {id: playlistId, reaction: "happy"}
         // axios.post('/playlists/' + playlistId + '/react', {action: action});
         this.props.sendReaction(reactionData);
     }
 
+
+    reactOnPlaylistSad(e) {
+        e.preventDefault();
+        var playlistId = this.props.playlist._id;
+        const reactionData = {id: playlistId, reaction: "sad"}
+        this.props.playlist.reactions ? document.querySelector("#react-counts-sad").textContent++ : console.log(null);
+        this.props.sendReaction(reactionData);
+    }
     followPlaylist(e) {
         console.log('follow button clicked')
         e.preventDefault();
@@ -85,7 +99,17 @@ class PlaylistShow extends React.Component {
                             <button onClick={this.reactOnPlaylist}>
                                 😊
                             </button>
-                            <span id="react-counts">{this.props.playlist.reactions ? playlist.reactions.happy : null}</span>
+                            {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
+                            <button onClick={this.reactOnPlaylistSad}>
+                                😢
+                            </button>
+                            {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
+                           
+                            {/* <button onClick={this.reactOnPlaylistAngry}>
+                                😢
+                            </button>
+                            {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.angry}</span> : null} */}
+
                         </div>
                     </div>
                     {/* < Reactions /> */}

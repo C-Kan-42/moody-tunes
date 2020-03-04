@@ -16,7 +16,7 @@ class Follow extends React.Component {
         console.log(this.props);
         return (
             <div>
-                
+                All followed Playlist here
             </div>
         )
     }

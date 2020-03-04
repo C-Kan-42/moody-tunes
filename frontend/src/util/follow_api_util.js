@@ -9,5 +9,5 @@ export const getUserFollows = id => {
 };
 
 export const destroyFollow = followId => {
-  return axios.get(`/api/follows/${followId}`)
+  return axios.delete(`/api/follows/${followId}`)
 };

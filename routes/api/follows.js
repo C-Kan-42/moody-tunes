@@ -30,7 +30,7 @@ router.get("/:id", (req, res) => {
       );
 });
 
-router.post('/', 
+router.post('/:followData', 
     passport.authenticate('jwt', { session: false}),
     (req, res) => { 
         const newFollow = new Follow({

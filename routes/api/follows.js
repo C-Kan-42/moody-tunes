@@ -41,7 +41,8 @@ router.post('/',
 
         newFollow
             .save()
-            .then(follow => res.json(follow));
+            .then(follow => res.json(follow))
+            .catch(err => res.status(400).json({ noReaction: "No reaction was made" }));
     }
 );
 

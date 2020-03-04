@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchFollows, fetchUserFollows } from '../../actions/follow_actions';
 
-import Follows from './follows';
+import Follow from './follows';
 
 const mapStateToProps = state => {
   return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Follows);
+export default connect(mapStateToProps, mapDispatchToProps)(Follow);

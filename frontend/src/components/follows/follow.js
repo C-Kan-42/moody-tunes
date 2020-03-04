@@ -6,7 +6,14 @@ class Follow extends React.Component {
         super(props)
     };
 
+    // componentDidMount() {
+    //     let {fetchFollows} = this.props
+    //     console.log(this.props, "returning propsssss");
+    //     fetchFollows()
+    // }
+
     render() {
+        console.log(this.props);
         return (
             <div>
                 

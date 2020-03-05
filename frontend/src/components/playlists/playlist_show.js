@@ -63,7 +63,7 @@ class PlaylistShow extends React.Component {
     followPlaylist(e) {
         console.log('follow button clicked')
         e.preventDefault();
-        let userId = this.props.user._id;
+        let userId = this.props.user ? this.props.user._id : null;
         let playlistId = this.props.playlist._id;
         const followData = {playlistId: playlistId, userId: userId};
         this.props.sendFollow(followData);

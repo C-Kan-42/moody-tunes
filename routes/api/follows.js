@@ -30,19 +30,19 @@ router.get("/:id", (req, res) => {
       );
 });
 
-router.post('/:playlistId', 
-    passport.authenticate('jwt', { session: false}),
+router.post("/:playlistId", 
+    // passport.authenticate('jwt', { session: false}),
     (req, res) => { 
         const newFollow = new Follow({
-            userId: req.userId,
-            playlistId: req.playlistId,
+            userId: req.body.userId,
+            playlistId: req.body.playlistId,
             date: Date.now
         });
 
         newFollow
             .save()
             .then(follow => res.json(follow))
-            .catch(err => res.status(400).json({ noReaction: "No reaction was made" }));
+            .catch(err => res.status(400).json({ noReaction: "Playlist was not followed" }));
     }
 );
 

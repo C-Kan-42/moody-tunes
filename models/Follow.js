@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const FollowSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: "users",
         required: true
     },
     playlistId: {
         type: Schema.Types.ObjectId,
-        ref: 'playlists',
+        ref: "playlists",
         required: true
     },
     date: {
@@ -18,5 +18,5 @@ const FollowSchema = new Schema({
     }
 });
 
-const Follow = mongoose.model('follows', FollowSchema);
+const Follow = mongoose.model("Follow", FollowSchema);
 module.exports = Follow;

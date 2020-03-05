@@ -11,10 +11,6 @@ class Profile extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.fetchFollows();
-    }
-
     render() {
         console.log(this.props);
         console.log(this.state.user);

@@ -9,7 +9,7 @@ export const getUserFollows = id => {
 };
 
 export const postFollow = (followData) => {
-  return axios.post(`/api/follows/${followData.id}`, followData.follow)
+  return axios.post(`/api/follows/${followData.playlistId}`, followData)
 };
 
 export const destroyFollow = followId => {

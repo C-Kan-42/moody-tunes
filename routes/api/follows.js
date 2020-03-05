@@ -30,12 +30,12 @@ router.get("/:id", (req, res) => {
       );
 });
 
-router.post('/:followData', 
+router.post('/:playlistId', 
     passport.authenticate('jwt', { session: false}),
     (req, res) => { 
         const newFollow = new Follow({
-            userId: req.user.id,
-            playlistId: req.playlist.id,
+            userId: req.userId,
+            playlistId: req.playlistId,
             date: Date.now
         });
 
@@ -54,15 +54,15 @@ router.delete('/:playlistId', (req, res) => {
         );
 });
 
-router.post('/:playlistId/follow', (req, res, next) => {
+// router.post('/:playlistId/follow', (req, res, next) => {
 
-    Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
-        .then(res => {
-            res.status(200).json({ message: 'followed' });
-        })
-        .catch(err => {
-            res.status(500).json({ error: err })
-        });
-})
+//     Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
+//         .then(res => {
+//             res.status(200).json({ message: 'followed' });
+//         })
+//         .catch(err => {
+//             res.status(500).json({ error: err })
+//         });
+// })
 
 module.exports = router;

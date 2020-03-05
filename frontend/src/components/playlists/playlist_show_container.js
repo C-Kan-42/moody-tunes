@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 import PlaylistShow from './playlist_show';
-import { fetchPlaylist, sendReaction, sendFollow } from '../../actions/playlist_actions';
+import { fetchPlaylist, sendReaction } from '../../actions/playlist_actions';
 import { fetchReactions } from '../../actions/reaction_actions';
+import { sendFollow } from '../../actions/follow_actions';
 
 const mSTP = (state) => {
     return {
         playlist: state.entities.playlists.currentPlaylist,
-        // reactions: state.entities.playlists.reaction
+        user: state.session.user
     }
 };
 

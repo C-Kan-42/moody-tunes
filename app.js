@@ -13,7 +13,7 @@ const path = require("path");
 require('dotenv').config();
 
 const port = process.env.PORT || 5000;
-
+//remove mongo uri in prod
 mongoose
   .connect("mongodb+srv://moody-tunes-dev:mmlYG0nE6r6q6vLM@cluster0-pfikf.mongodb.net/test?", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to mongoDB"))

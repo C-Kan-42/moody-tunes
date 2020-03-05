@@ -59,6 +59,7 @@ class PlaylistShow extends React.Component {
         this.props.playlist.reactions ? document.querySelector("#react-counts-sad").textContent++ : console.log(null);
         this.props.sendReaction(reactionData);
     }
+    
     followPlaylist(e) {
         console.log('follow button clicked')
         e.preventDefault();

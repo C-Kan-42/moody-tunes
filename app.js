@@ -10,14 +10,9 @@ const passport = require("passport");
 const reactions = require("./routes/api/reactions");
 const songs = require("./routes/api/songs"); 
 const path = require("path");
-// require('dotenv').config();
+require('dotenv').config();
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-  });
-}
+const port = process.env.PORT || 5000;
 
 mongoose
   .connect("mongodb+srv://moody-tunes-dev:mmlYG0nE6r6q6vLM@cluster0-pfikf.mongodb.net/test?", { useNewUrlParser: true, useUnifiedTopology: true })
@@ -41,7 +36,12 @@ app.use("/api/playlists", playlists);
 app.use("/api/reactions", reactions);
 app.use("/api/songs", songs);
 
-const port = process.env.PORT || 5000;
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend", "build")));
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  });
+}
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

@@ -16,10 +16,10 @@ class Profile extends React.Component {
         console.log(this.state.user);
         return (
             <div className="profile-container">
-                <h2 className="profile-gretting">
-                    Hi, {this.props.user.username ? this.props.user.username : null }
-                </h2>
-
+                {this.props.user ? 
+                    <h2 className="profile-gretting">
+                        Hi, {this.props.user.username? this.props.user.username : null}
+                    </h2> : null}
                 <h3 className="profile-follows">
                     Followed Playlists
                 </h3>

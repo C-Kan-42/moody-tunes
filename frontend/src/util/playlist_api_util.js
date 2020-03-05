@@ -12,10 +12,6 @@ export const postReaction = (reactionData) => {
   return axios.patch(`/api/playlists/${reactionData.id}/react`, reactionData)
 }
 
-export const postFollow = (followData) => {
-  return axios.post(`/api/playlists/${followData.id}/follow`, followData.follow)
-};
-
 // export const getFollowedPlaylists = (id) => {
 //     return axios.get(`/api/playlists/follows/${id}`)
 // };   NEST THIS => follows/user/${id}

@@ -19,7 +19,7 @@ class PlaylistShow extends React.Component {
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
         this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
-
+        this.followPlaylist = this.followPlaylist.bind(this);
     };
 
     componentDidMount() {
@@ -63,8 +63,9 @@ class PlaylistShow extends React.Component {
     followPlaylist(e) {
         console.log('follow button clicked')
         e.preventDefault();
+        let userId = this.props.user._id;
         let playlistId = this.props.playlist._id;
-        const followData = {id: playlistId, follows: "true"};
+        const followData = {playlistId: playlistId, userId: userId};
         this.props.sendFollow(followData);
     }
 

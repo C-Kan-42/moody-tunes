@@ -1,5 +1,6 @@
 import React from 'react';
 import './profile.scss';
+import Follow from '../follows/follow';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -10,12 +11,9 @@ class Profile extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.props.fetchFollows();
-    }
-
     render() {
         console.log(this.props);
+        console.log(this.state.user);
         return (
             <div className="profile-container">
                 <h2 className="profile-gretting">
@@ -25,6 +23,8 @@ class Profile extends React.Component {
                 <h3 className="profile-follows">
                     Followed Playlists
                 </h3>
+
+                <Follow />
             </div>
         );
     }

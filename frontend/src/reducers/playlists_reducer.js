@@ -6,7 +6,7 @@ import { RECEIVE_PLAYLISTS,
 } from '../actions/playlist_actions';
 
 
-const PlaylistsReducer = (state = { all: [], currentPlaylist: {}, reactions: [] }, action) => {
+const PlaylistsReducer = (state = { all: [], currentPlaylist: {}, reaction: {}}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {

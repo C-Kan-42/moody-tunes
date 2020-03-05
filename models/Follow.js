@@ -10,7 +10,7 @@ const FollowSchema = new Schema({
     playlistId: {
         type: Schema.Types.ObjectId,
         ref: 'playlists',
-        reqiured: true
+        required: true
     },
     date: {
         type: Date,

@@ -30,18 +30,19 @@ router.get("/:id", (req, res) => {
       );
 });
 
-router.post('/', 
+router.post('/:playlistId', 
     passport.authenticate('jwt', { session: false}),
     (req, res) => { 
         const newFollow = new Follow({
-            userId: req.user.id,
-            playlistId: req.playlist.id,
+            userId: req.userId,
+            playlistId: req.playlistId,
             date: Date.now
         });
 
         newFollow
             .save()
-            .then(follow => res.json(follow));
+            .then(follow => res.json(follow))
+            .catch(err => res.status(400).json({ noReaction: "No reaction was made" }));
     }
 );
 
@@ -53,15 +54,15 @@ router.delete('/:playlistId', (req, res) => {
         );
 });
 
-router.post('/:playlistId/follow', (req, res, next) => {
+// router.post('/:playlistId/follow', (req, res, next) => {
 
-    Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
-        .then(res => {
-            res.status(200).json({ message: 'followed' });
-        })
-        .catch(err => {
-            res.status(500).json({ error: err })
-        });
-})
+//     Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
+//         .then(res => {
+//             res.status(200).json({ message: 'followed' });
+//         })
+//         .catch(err => {
+//             res.status(500).json({ error: err })
+//         });
+// })
 
 module.exports = router;

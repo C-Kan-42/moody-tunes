@@ -19,6 +19,13 @@ mongoose
   .then(() => console.log("Connected to mongoDB"))
   .catch(err => console.log(err));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "frontend", "build")));
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 app.get("/", (req, res) => {
   res.send("Hello Moody Tunes!");
 });
@@ -35,13 +42,6 @@ app.use("/api/playlists", playlists);
 // app.use("/api/follows", follows);
 app.use("/api/reactions", reactions);
 app.use("/api/songs", songs);
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "frontend", "build")));
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-  });
-}
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

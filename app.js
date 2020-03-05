@@ -10,12 +10,13 @@ const passport = require("passport");
 const reactions = require("./routes/api/reactions");
 const songs = require("./routes/api/songs"); 
 const path = require("path");
+const keys = require('./config/keys')
 require('dotenv').config();
 
 const port = process.env.PORT || 5000;
 //remove mongo uri in prod
 mongoose
-  .connect("mongodb+srv://moody-tunes-dev:mmlYG0nE6r6q6vLM@cluster0-pfikf.mongodb.net/test?", { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to mongoDB"))
   .catch(err => console.log(err));
 

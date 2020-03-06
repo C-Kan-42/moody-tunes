@@ -61,7 +61,7 @@ class PlaylistShow extends React.Component {
     }
     
     followPlaylist(e) {
-        console.log('follow button clicked')
+        // console.log('follow button clicked')
         e.preventDefault();
         let userId = this.props.user ? this.props.user._id : null;
         let playlistId = this.props.playlist._id;
@@ -71,7 +71,7 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
-        console.log(playlist.reactions)
+        // console.log(playlist.reactions)
         // console.log(this.props.playlist);
         if (this.props.playlist === {}) {
             return null;

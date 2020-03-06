@@ -98,14 +98,18 @@ class PlaylistShow extends React.Component {
                             ) : null}
                         </ul> 
                         <div className="reaction-buttons">
-                            <button onClick={this.reactOnPlaylist}>
-                                😊
-                            </button>
-                            {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
-                            <button onClick={this.reactOnPlaylistSad}>
-                                😢
-                            </button>
-                            {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
+                            <div>
+                                <button onClick={this.reactOnPlaylist}>
+                                    😊
+                                </button>
+                                {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
+                            </div>
+                            <div>
+                                <button onClick={this.reactOnPlaylistSad}>
+                                    😢
+                                </button>
+                                {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
+                            </div>
                            
                             {/* <button onClick={this.reactOnPlaylistAngry}>
                                 😢

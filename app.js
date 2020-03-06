@@ -13,7 +13,6 @@ const path = require("path");
 const keys = require('./config/keys')
 require('dotenv').config();
 
-const port = process.env.PORT || 5000;
 //remove mongo uri in prod
 mongoose
   .connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -43,6 +42,8 @@ app.use("/api/playlists", playlists);
 // app.use("/api/follows", follows);
 app.use("/api/reactions", reactions);
 app.use("/api/songs", songs);
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

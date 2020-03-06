@@ -99,13 +99,13 @@ class PlaylistShow extends React.Component {
                         </ul> 
                         <div className="reaction-buttons">
                             <div>
-                                <button onClick={this.reactOnPlaylist}>
+                                <button className="reaction-box" onClick={this.reactOnPlaylist}>
                                     😊
                                 </button>
                                 {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
                             </div>
                             <div>
-                                <button onClick={this.reactOnPlaylistSad}>
+                                <button className="reaction-box" onClick={this.reactOnPlaylistSad}>
                                     😢
                                 </button>
                                 {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}

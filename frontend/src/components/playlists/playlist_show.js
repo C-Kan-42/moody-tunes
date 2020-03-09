@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+// import {Route} from 'react-router-dom';
 // import axios from 'axios';
 import Track from '../track/track';
 import Reactions from '../reactions/reactions';
@@ -88,7 +88,7 @@ class PlaylistShow extends React.Component {
         if (this.props.playlist === {}) {
             return null;
         } else {
-            console.log(playlist.reactions)
+            // console.log(playlist.reactions)
             return(
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">

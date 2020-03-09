@@ -13,6 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchUser: userId => dispatch(SessionActions.fetchUser(userId))
+        // fetchUserFollows: (id) => dispatch(fetchUserFollows(id)),
+        // fetchPlaylist: id => dispatch(fetchPlaylist(id)),
     };
 };
 

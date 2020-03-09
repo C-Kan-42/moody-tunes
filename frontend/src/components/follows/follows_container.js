@@ -8,7 +8,8 @@ import Follow from './follows';
 
 const mapStateToProps = state => {
   return {
-    follows: Object.values(state.follows.all)
+    follows: Object.values(state.follows.all),
+    playlists: state.entities.playlists.all
   };
 };
 
@@ -17,6 +18,7 @@ const mapDispatchToProps = dispatch => {
     fetchUserFollows: (id) => dispatch(fetchUserFollows(id)),
     sendFollow: (followData) => dispatch(sendFollow(followData)),
     deleteFollow: (followId) => dispatch(deleteFollow(followId))
+    // fetchPlaylist: id => dispatch(fetchPlaylist(id)),
   };
 };
 

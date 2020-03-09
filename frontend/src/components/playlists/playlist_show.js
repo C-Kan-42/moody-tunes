@@ -19,6 +19,7 @@ class PlaylistShow extends React.Component {
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
         this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
+        this.reactOnPlaylistChill = this.reactOnPlaylistChill.bind(this);
         this.followPlaylist = this.followPlaylist.bind(this);
     };
 
@@ -26,12 +27,6 @@ class PlaylistShow extends React.Component {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
         // this.props.fetchReactions();
     }
-
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.match.params.playlistId !== this.props.match.params.playlistId) {
-    //     this.props.fetchPlaylist(this.props.match.params.playlistId);
-    //     }
-    // }
 
     reactOnPlaylist(e) {
         // var updatePlaylistStats = {
@@ -57,6 +52,14 @@ class PlaylistShow extends React.Component {
         var playlistId = this.props.playlist._id;
         const reactionData = {id: playlistId, reaction: "sad"}
         this.props.playlist.reactions ? document.querySelector("#react-counts-sad").textContent++ : console.log(null);
+        this.props.sendReaction(reactionData);
+    }
+
+    reactOnPlaylistChill(e) {
+        e.preventDefault();
+        var playlistId = this.props.playlist._id;
+        const reactionData = {id: playlistId, reaction: "chill"}
+        this.props.playlist.reactions ? document.querySelector("#react-counts-chill").textContent++ : console.log(null);
         this.props.sendReaction(reactionData);
     }
     
@@ -105,12 +108,17 @@ class PlaylistShow extends React.Component {
                                 {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
                             </div>
                             <div>
+                                <button className="reaction-box" onClick={this.reactOnPlaylistChill}>
+                                    😎
+                                </button>
+                                {this.props.playlist.reactions ? <span id="react-counts-chill">{playlist.reactions.chill}</span> : null}
+                            </div>
+                            <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylistSad}>
                                     😢
                                 </button>
                                 {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
                             </div>
-                           
                             {/* <button onClick={this.reactOnPlaylistAngry}>
                                 😢
                             </button>

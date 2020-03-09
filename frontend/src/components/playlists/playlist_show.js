@@ -20,6 +20,7 @@ class PlaylistShow extends React.Component {
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
         this.reactOnPlaylistSad = this.reactOnPlaylistSad.bind(this);
         this.reactOnPlaylistChill = this.reactOnPlaylistChill.bind(this);
+        this.reactOnPlaylistAngry = this.reactOnPlaylistAngry.bind(this);
         this.followPlaylist = this.followPlaylist.bind(this);
     };
 
@@ -60,6 +61,14 @@ class PlaylistShow extends React.Component {
         var playlistId = this.props.playlist._id;
         const reactionData = {id: playlistId, reaction: "chill"}
         this.props.playlist.reactions ? document.querySelector("#react-counts-chill").textContent++ : console.log(null);
+        this.props.sendReaction(reactionData);
+    }
+
+    reactOnPlaylistAngry(e) {
+        e.preventDefault();
+        var playlistId = this.props.playlist._id;
+        const reactionData = {id: playlistId, reaction: "angry"}
+        this.props.playlist.reactions ? document.querySelector("#react-counts-angry").textContent++ : console.log(null);
         this.props.sendReaction(reactionData);
     }
     
@@ -119,10 +128,12 @@ class PlaylistShow extends React.Component {
                                 </button>
                                 {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
                             </div>
-                            {/* <button onClick={this.reactOnPlaylistAngry}>
-                                😢
-                            </button>
-                            {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.angry}</span> : null} */}
+                            <div>
+                                <button className="reaction-box" onClick={this.reactOnPlaylistAngry}>
+                                    🤬
+                                </button>
+                                {this.props.playlist.reactions ? <span id="react-counts-angry">{playlist.reactions.angry}</span> : null}
+                            </div>
 
                         </div>
                     </div>

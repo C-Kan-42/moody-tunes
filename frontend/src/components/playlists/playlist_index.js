@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import PlaylistShowContainer from './playlist_show_container';
 import Playlist from '../playlists/playlist';
-import Reactions from '../reactions/reactions';
+// import Reactions from '../reactions/reactions';
 import './playlist-index.scss';
 
 class PlaylistIndex extends React.Component{

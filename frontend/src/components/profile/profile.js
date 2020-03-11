@@ -9,11 +9,13 @@ class Profile extends React.Component {
         this.state = {
             user: this.props.user
         }
+        
     }
 
     render() {
         return (
             <div className="profile-container">
+              {console.log(this.props.user)}
                 {this.props.user ? 
                     <h2 className="profile-gretting">
                         Hi, {this.props.user.username? this.props.user.username : null}

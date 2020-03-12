@@ -36,9 +36,8 @@ router.post("/:playlistId",
         const newFollow = new Follow({
             userId: req.body.userId,
             playlistId: req.body.playlistId,
-            date: Date.now
+            date: Date.now()
         });
-
         newFollow
             .save()
             .then(follow => res.json(follow))

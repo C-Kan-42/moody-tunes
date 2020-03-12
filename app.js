@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/playlists", playlists);
-// app.use("/api/follows", follows);
+app.use("/api/follows", follows);
 app.use("/api/reactions", reactions);
 app.use("/api/songs", songs);
 

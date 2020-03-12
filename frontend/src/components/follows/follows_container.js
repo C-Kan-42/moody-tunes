@@ -7,9 +7,9 @@ import { fetchPlaylist } from '../../actions/playlist_actions'
 
 import Follow from './follow'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    follows: Object.values(state.follows.all),
+    // follows: Object.values(state.follows.all),
     playlists: state.entities.playlists.all,
     user: state.session.user
   };

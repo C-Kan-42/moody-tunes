@@ -4,14 +4,14 @@ import React from 'react';
 class Follow extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            playlists: []
-        }
+        
+        // this.state = {
+        //     playlists: []
+        // }
     };
 
     componentDidMount() {
-        
+        this.props.fetchUserFollows(this.props.match.params.playlistId);
     }
 
     render() {

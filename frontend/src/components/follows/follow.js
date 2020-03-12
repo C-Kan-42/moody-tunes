@@ -3,14 +3,16 @@ import React from 'react';
 
 class Follow extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+
+        this.state = {
+            playlists: []
+        }
     };
 
-    // componentDidMount() {
-    //     let {fetchFollows} = this.props
-    //     console.log(this.props, "returning propsssss");
-    //     fetchFollows()
-    // }
+    componentDidMount() {
+        
+    }
 
     render() {
         // console.log(this.props);

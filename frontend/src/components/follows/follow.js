@@ -11,7 +11,7 @@ class Follow extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchUserFollows(this.props.match.params.playlistId);
+        // this.props.fetchUserFollows(this.props.match.params.playlistId);
     }
 
     render() {

@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchUserFollows: (id) => dispatch(fetchUserFollows(id)),
     sendFollow: (followData) => dispatch(sendFollow(followData)),

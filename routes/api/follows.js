@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Follow = require("../../models/Follow");
-const passport = require("passport");
-const jwt = require("jsonwebtoken");
+// const passport = require("passport");
+// const jwt = require("jsonwebtoken");
 
 router.get('/', (req, res) => {
     Follow.find()
@@ -36,9 +36,8 @@ router.post("/:playlistId",
         const newFollow = new Follow({
             userId: req.body.userId,
             playlistId: req.body.playlistId,
-            date: Date.now
+            date: Date.now()
         });
-
         newFollow
             .save()
             .then(follow => res.json(follow))
@@ -53,16 +52,5 @@ router.delete('/:playlistId', (req, res) => {
             res.status(404).json({ noplaylistfound: "Playlist was unfollowed" })
         );
 });
-
-// router.post('/:playlistId/follow', (req, res, next) => {
-
-//     Playlist.updateOne({ _id: req.params.playlistId }, { $set: { "follows": "false" } }).exec()
-//         .then(res => {
-//             res.status(200).json({ message: 'followed' });
-//         })
-//         .catch(err => {
-//             res.status(500).json({ error: err })
-//         });
-// })
 
 module.exports = router;

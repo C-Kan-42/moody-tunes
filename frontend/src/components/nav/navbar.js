@@ -1,10 +1,16 @@
 import React from 'react';
 import './navbar.scss';
 import { Link } from 'react-router-dom';
+import Profile from '../profile/profile';
 
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            user: this.props.currentUser
+        };
+
         this.logoutUser = this.logoutUser.bind(this);
         this.sessionLinks = this.sessionLinks.bind(this);
     }
@@ -30,6 +36,7 @@ class NavBar extends React.Component {
                         profile
                     </button>
                 </Link>
+                {/* <Profile user={this.state.user}/>     */}
                 &nbsp;&nbsp;
                 <button className="header-button" onClick={this.logoutUser}>
                   log out

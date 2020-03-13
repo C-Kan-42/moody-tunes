@@ -13,6 +13,7 @@ import SignupFormContainer from "../session_form/signup_form_container";
 import PlaylistsContainer from '../playlists/playlists_container';
 import PlaylistShowContainer from '../playlists/playlist_show_container';
 import ProfileContainer from '../profile/profile_container';
+import FollowContainer from '../follows/follows_container';
 
 const App = () => (
    
@@ -26,6 +27,7 @@ const App = () => (
             <AuthRoute exact path="/register" component={SignupFormContainer} />
             <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
             <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
+            <ProtectedRoute exact path="/follows" component={FollowContainer}/>
             <ProtectedRoute path="/profile" component={ProfileContainer} />
         </Switch>
 

@@ -2,7 +2,7 @@ import React from 'react';
 // import {Route} from 'react-router-dom';
 // import axios from 'axios';
 import Track from '../track/track';
-import Reactions from '../reactions/reactions';
+// import Reactions from '../reactions/reactions';
 import './playlist-show.scss';
 
 class PlaylistShow extends React.Component {
@@ -75,7 +75,7 @@ class PlaylistShow extends React.Component {
     followPlaylist(e) {
         // console.log('follow button clicked')
         e.preventDefault();
-        let userId = this.props.user ? this.props.user._id : null;
+        let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
         const followData = {playlistId: playlistId, userId: userId};
         this.props.sendFollow(followData);

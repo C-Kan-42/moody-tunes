@@ -1,10 +1,10 @@
 
 import { getPlaylist, 
     getPlaylists, 
-    getFollowedPlaylists, 
+    // getFollowedPlaylists, 
     postReaction
 } from '../util/playlist_api_util';
-import { RECEIVE_REACTIONS } from './reaction_actions';
+// import { RECEIVE_REACTIONS } from './reaction_actions';
 
 
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';

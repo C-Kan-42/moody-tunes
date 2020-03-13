@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const passport = require("passport");
+// const mongoose = require("mongoose");
+// const passport = require("passport");
 
 const Playlist = require("../../models/Playlist");
-const Song = require("../../models/Song");
+// const Song = require("../../models/Song");
 
 router.get("/", (req, res) => {
     Playlist.find()

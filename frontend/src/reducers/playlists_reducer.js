@@ -1,7 +1,7 @@
 
 import { RECEIVE_PLAYLISTS, 
     RECEIVE_PLAYLIST, 
-    RECEIVE_FOLLOWED_PLAYLISTS, 
+    // RECEIVE_FOLLOWED_PLAYLISTS, 
     RECEIVE_REACTION
 } from '../actions/playlist_actions';
 

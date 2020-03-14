@@ -58,12 +58,7 @@ export const login = userData => dispatch =>
     }, err => (
       dispatch(receiveErrors(err.response.data))
     ));
-
-//       )
-//       .catch (err => {
-//   dispatch(receiveErrors(err.response.data));
-// })
-
+    
 export const logout = () => dispatch => {
     // Remove the token from local storage
     localStorage.removeItem("jwtToken");

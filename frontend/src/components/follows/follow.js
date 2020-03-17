@@ -10,10 +10,10 @@ class Follow extends React.Component {
         }
     };
 
-    componentDidMount() {
-        // console.log(this.props.fetchUserFollows(this.props.user._id))
-        this.props.fetchUserFollows(this.props.user.id);
-    }
+    // componentDidMount() {
+    //     console.log(this.props.fetchUserFollows(this.props.user._id))
+    //     this.props.fetchUserFollows(this.props.user.id);
+    // }
 
     render() {
         // console.log(this.props.fetchUserFollows);
@@ -21,7 +21,7 @@ class Follow extends React.Component {
         return (
             <div>
                 All followed Playlist here
-                {console.log(this.props.follows)}
+                {/* {console.log(this.props.follows)} */}
             </div>
         )
     }

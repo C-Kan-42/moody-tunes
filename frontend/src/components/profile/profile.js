@@ -7,7 +7,8 @@ class Profile extends React.Component {
         super(props);
 
         this.state = {
-            user: {}
+            user: {},
+            follows: {}
         }
         
     }
@@ -23,8 +24,12 @@ class Profile extends React.Component {
                 <h3 className="profile-follows">
                     Followed Playlists
                 </h3>
-
-                {this.props.user ? <Follow user={this.props.user}/> : null }
+                
+                <div>
+                    {this.props.fetchUserFollows(this.props.user.id)}
+                    {/* {console.log(Array.from(this.props.follows))} */}
+                </div>
+                {/* {this.props.user ? <Follow user={this.props.user}/> : null } */}
             </div>
         );
     }

@@ -28,7 +28,7 @@ const App = () => (
             <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
             <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
             {/* <ProtectedRoute path="/profile" components={{profile: {ProfileContainer}, follows: {FollowContainer}}} />  */}
-            <ProtectedRoute path="/profile" component={FollowContainer}/>
+            {/* <ProtectedRoute path="/profile" component={FollowContainer}/> */}
             <ProtectedRoute path="/profile/:userId" component={ProfileContainer} />
         </Switch>
 

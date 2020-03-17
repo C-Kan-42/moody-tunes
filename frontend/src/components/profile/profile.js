@@ -7,7 +7,7 @@ class Profile extends React.Component {
         super(props);
 
         this.state = {
-            user: this.props.user
+            user: {}
         }
         
     }
@@ -24,7 +24,7 @@ class Profile extends React.Component {
                     Followed Playlists
                 </h3>
 
-                <Follow />
+                {this.props.user ? <Follow user={this.props.user}/> : null }
             </div>
         );
     }

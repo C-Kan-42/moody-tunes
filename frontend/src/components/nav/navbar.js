@@ -1,6 +1,6 @@
 import React from 'react';
 import './navbar.scss';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Profile from '../profile/profile';
 
 class NavBar extends React.Component {
@@ -31,11 +31,18 @@ class NavBar extends React.Component {
                     : null}
                 </h2>
                 &nbsp;&nbsp;
-                <Link to={`/profile`}>
-                    <button className="header-button">
-                        profile
-                    </button>
-                </Link>
+                {console.log(this.props.currentUser)}
+                <div>
+                    {this.props.currentUser ? 
+                    <Link to={`/profile/${this.props.currentUser.id}`}>
+                        <button className="header-button">
+                            profile
+                        </button>
+                    </Link> : null
+                    }
+                    
+                </div>
+                
                 {/* <Profile user={this.state.user}/>     */}
                 &nbsp;&nbsp;
                 <button className="header-button" onClick={this.logoutUser}>

@@ -13,7 +13,7 @@ export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 // export const receiveFollows = follows => ({
 //     type: RECEIVE_FOLLOWS,
 //     follows
-// });
+// }); 
 
 export const receiveUserFollows = follows => ({
     type: RECEIVE_USER_FOLLOWS,

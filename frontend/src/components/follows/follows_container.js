@@ -15,13 +15,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = (dispatch) => ({
     fetchUserFollows: (id) => dispatch(fetchUserFollows(id)),
     sendFollow: (followData) => dispatch(sendFollow(followData)),
     deleteFollow: (followId) => dispatch(deleteFollow(followId)),
     fetchPlaylist: id => dispatch(fetchPlaylist(id))
-  };
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Follow);

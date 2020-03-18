@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './profile.scss';
 import Follow from '../follows/follow';
 
@@ -22,10 +23,11 @@ class Profile extends React.Component {
     playlistTitleFetcher(follow) {
         console.log(this.props.playlists)
         let title;
+        let currPlaylist;
         if (this.props.playlists.length > 0) {
             this.props.playlists.forEach(playlist => {
                 if (playlist._id === follow.playlistId) {
-                    title = playlist.title;
+                    currPlaylist = playlist;
                 
                 };
             });
@@ -33,7 +35,9 @@ class Profile extends React.Component {
 
         return (
             <li>
-                {title}
+                <Link to={`/playlists/${currPlaylist._id}`} style={{ textDecoration: 'none' }}>
+                    {currPlaylist.title}
+                </Link>
             </li>
         );
         
@@ -53,7 +57,7 @@ class Profile extends React.Component {
                     Followed Playlists
                 </h3>
                 
-                <ul>
+                <ul className="followed-playlists">
                     {Array.isArray(this.props.follows) ? (this.props.follows.map(follow => 
                         // <li>
                         //     {follow.playlistId}

@@ -35,16 +35,14 @@ class NavBar extends React.Component {
                 </h2>
                 &nbsp;&nbsp;
                 {console.log(this.props.currentUser)}
-                <div>
-                    {this.props.currentUser ? 
-                    <Link to={`/profile/${this.props.currentUser.id}`}>
-                        <button className="header-button">
-                            profile
-                        </button>
-                    </Link> : null
-                    }
-                    
-                </div>
+               
+                {this.props.currentUser ? 
+                <Link to={`/profile/${this.props.currentUser.id}`}>
+                    <button className="header-button">
+                        profile
+                    </button>
+                </Link> : null
+                }
                 
                 {/* <Profile user={this.state.user}/>     */}
                 &nbsp;&nbsp;

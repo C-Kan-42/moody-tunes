@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get("/user/:userId", (req, res) => {
-    Follow.find({ user: req.params.userId })
+    Follow.find({ userId: req.params.userId })
       .then(follows => res.json(follows))
       .catch(err => res
           .status(404)

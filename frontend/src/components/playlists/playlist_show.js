@@ -114,25 +114,25 @@ class PlaylistShow extends React.Component {
                                 <button className="reaction-box" onClick={this.reactOnPlaylist}>
                                     😊
                                 </button>
-                                {this.props.playlist.reactions ? <span id="react-counts-happy">{playlist.reactions.happy}</span> : null}
+                                {this.props.playlist.reactions ? <span className="react-counts" id="react-counts-happy">{playlist.reactions.happy}</span> : null}
                             </div>
                             <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylistChill}>
                                     😎
                                 </button>
-                                {this.props.playlist.reactions ? <span id="react-counts-chill">{playlist.reactions.chill}</span> : null}
+                                {this.props.playlist.reactions ? <span className="react-counts" id="react-counts-chill">{playlist.reactions.chill}</span> : null}
                             </div>
                             <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylistSad}>
                                     😢
                                 </button>
-                                {this.props.playlist.reactions ? <span id="react-counts-sad">{playlist.reactions.sad}</span> : null}
+                                {this.props.playlist.reactions ? <span className="react-counts" id="react-counts-sad">{playlist.reactions.sad}</span> : null}
                             </div>
                             <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylistAngry}>
                                     🤬
                                 </button>
-                                {this.props.playlist.reactions ? <span id="react-counts-angry">{playlist.reactions.angry}</span> : null}
+                                {this.props.playlist.reactions ? <span className="react-counts" id="react-counts-angry">{playlist.reactions.angry}</span> : null}
                             </div>
 
                         </div>

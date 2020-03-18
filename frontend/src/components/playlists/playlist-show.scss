@@ -58,10 +58,9 @@
     cursor: pointer;
 }
 
-#react-counts-happy {
-    margin-left: 10px;
-}
-
-#react-counts-sad {
+.react-counts {
+    font-family: 'Heebo', sans-serif;
+    font-weight: lighter;
+    font-size: 18px;
     margin-left: 10px;
 }

@@ -21,8 +21,22 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user)
-      .then(this.props.closeModal);
+    this.props.processForm(user).then(() => {
+      if (Object.keys(this.props.errors).length == 0) {
+        this.props.closeModal();
+      }
+    });
+
+    
+
+      // .then(() => this.props.history.push("/playlists"),
+      //   () => {
+      //     if (this.props.formType === 'log in') {
+      //       this.setState({ username: '', email: '', password: '' })
+      //     }
+      //   });
+
+      // .then(this.props.closeModal);
   }
 
   handleDemo(e) {
@@ -33,13 +47,14 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    if (Array.from(this.props.errors).length > 0) {
+    console.log(this.props.errors)
+    if (Object.keys(this.props.errors).length > 0) {
       return (
         <ul>
-          {(Array.from(this.props.errors)).map((error, i) => {
+          {Object.keys(this.props.errors).map((errorKey, i) => {
             return (
               <li className="errors" key={i}>
-                {error}
+                {this.props.errors[errorKey]}
               </li>
             )
           })
@@ -104,6 +119,9 @@ class SessionForm extends React.Component {
             <header className="session-form-header">
               {this.props.formType}
             </header>
+
+            {this.renderErrors()}
+
             <label>
               <div className="form-label">
                 Username
@@ -134,7 +152,6 @@ class SessionForm extends React.Component {
               />
             </label>
 
-            {this.renderErrors()}
             <br />
 
             <div className="button-row">

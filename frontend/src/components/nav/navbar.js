@@ -22,6 +22,9 @@ class NavBar extends React.Component {
     };
 
     sessionLinks() {
+        // if (!this.props.currentUser) {
+        //     return null
+        // }
         if(this.props.loggedIn) {
             return (
               <nav className="header-group">

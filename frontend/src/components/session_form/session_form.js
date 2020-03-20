@@ -25,18 +25,11 @@ class SessionForm extends React.Component {
       if (Object.keys(this.props.errors).length == 0) {
         this.props.closeModal();
       }
+
+      //we want to trigger a setState in navbar from session form, trigger re-render in component 
+
     });
 
-    
-
-      // .then(() => this.props.history.push("/playlists"),
-      //   () => {
-      //     if (this.props.formType === 'log in') {
-      //       this.setState({ username: '', email: '', password: '' })
-      //     }
-      //   });
-
-      // .then(this.props.closeModal);
   }
 
   handleDemo(e) {

@@ -10,7 +10,7 @@ const passport = require("passport");
 const reactions = require("./routes/api/reactions");
 const songs = require("./routes/api/songs"); 
 const path = require("path");
-const keys = require('./config/keys')
+const keys = require('./config/keys');
 require('dotenv').config();
 
 //remove mongo uri in prod
@@ -21,7 +21,7 @@ mongoose
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "frontend", "build")));
-  app.get("/", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
 }

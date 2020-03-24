@@ -1,0 +1,23 @@
+.invalid-background {
+    background-image: linear-gradient(black, #863CD6);
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.invalid-header {
+    font-family: 'Heebo', sans-serif;
+    font-weight: lighter;
+    padding: 7px;
+    font-size: 30px;
+    color: white;
+    // align-items:center;
+}
+
+.invalid-subheader {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px;
+    color: white;
+}

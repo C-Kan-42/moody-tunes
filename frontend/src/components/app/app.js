@@ -33,8 +33,8 @@ class App extends React.Component {
 
                 <Switch>
                     <AuthRoute exact path="/" component={MainPage} />
-                    <AuthRoute exact path="/login" component={LoginFormContainer} />
-                    <AuthRoute exact path="/register" component={SignupFormContainer} />
+                    {/* <AuthRoute exact path="/login" component={LoginFormContainer} /> */}
+                    {/* <AuthRoute exact path="/register" component={SignupFormContainer} /> */}
                     <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
                     <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
                     {/* <ProtectedRoute path="/profile" components={{profile: {ProfileContainer}, follows: {FollowContainer}}} />  */}

@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
       }
 
       //we want to trigger a setState in navbar from session form, trigger re-render in component 
-
+      //session_form = child, when we click login or signup, we want to call function in navbar
     });
 
   }

@@ -13,7 +13,12 @@ class NavBar extends React.Component {
 
         this.logoutUser = this.logoutUser.bind(this);
         this.sessionLinks = this.sessionLinks.bind(this);
+        // this.navbarSetState = this.navbarSetState.bind(this);
     }
+
+    // navbarSetState(currentUser) {
+    //     this.setState({ user: currentUser });
+    // };
 
     logoutUser(e) {
         e.preventDefault();

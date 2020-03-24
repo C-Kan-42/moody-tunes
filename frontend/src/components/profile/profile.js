@@ -21,7 +21,7 @@ class Profile extends React.Component {
     }
 
     playlistTitleFetcher(follow) {
-        console.log(this.props.playlists)
+        // console.log(this.props.playlists)
         let title;
         let currPlaylist;
         if (this.props.playlists.length > 0) {
@@ -35,20 +35,21 @@ class Profile extends React.Component {
 
         return (
             <li>
-                <Link to={`/playlists/${currPlaylist._id}`} style={{ textDecoration: 'none' }}>
+                {currPlaylist ? 
+                (<Link to={`/playlists/${currPlaylist._id}`} style={{ textDecoration: 'none' }}>
                     {currPlaylist.title}
-                </Link>
+                </Link>) : null}
             </li>
         );
         
     }
 
     render() {
-        console.log((this.props.follows));
+        // console.log((this.props.follows));
 
         return (
             <div className="profile-container">
-              {console.log(this.props.user)}
+              {/* {console.log(this.props.user)} */}
                 {this.props.user ? 
                     <h2 className="profile-gretting">
                         Hi, {this.props.user.username? this.props.user.username : null}

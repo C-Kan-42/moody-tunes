@@ -13,7 +13,7 @@ const FollowsReducer = (state = { all: {}, user: {}, follow: {}}, action) => {
             newState.user = action.follows.data;
             return newState;
         case REMOVE_FOLLOW:
-            delete newState[action.followId];
+            delete newState.all[action.followId];
             return newState;
         case RECEIVE_FOLLOW:
             newState.follow = action.follow;

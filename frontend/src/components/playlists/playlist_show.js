@@ -78,13 +78,20 @@ class PlaylistShow extends React.Component {
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
         const followData = {playlistId: playlistId, userId: userId};
+        let followButtonText = "Unfollow";
         this.props.sendFollow(followData);
+
+        //how to check if a user has followed this playlist?
+        //if they follow it, render +unfollow and this.props.removeFollow(playlistId)
+        //if they don't, execute above
+        
     }
 
     render() {
         const {playlist} = this.props;
         // console.log(playlist.reactions)
         // console.log(this.props.playlist);
+        let followButtonText = "+ Follow"
         if (this.props.playlist === {}) {
             return null;
         } else {
@@ -94,7 +101,7 @@ class PlaylistShow extends React.Component {
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
                             <button className="playlist-detail+f" onClick={this.followPlaylist}>
-                                + Follow
+                                {followButtonText}
                             </button>
                         </div>
                     </div>

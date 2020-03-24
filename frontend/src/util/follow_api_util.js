@@ -12,6 +12,6 @@ export const postFollow = (followData) => {
   return axios.post(`/api/follows/${followData.playlistId}`, followData)
 };
 
-export const destroyFollow = followId => {
-  return axios.delete(`/api/follows/${followId}`)
+export const destroyFollow = (followData) => {
+  return axios.delete(`/api/follows/${followData.playlistId}`)
 };

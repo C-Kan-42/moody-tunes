@@ -8,12 +8,17 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = {
-            user: this.props.currentUser
+            user: {}
         };
 
         this.logoutUser = this.logoutUser.bind(this);
         this.sessionLinks = this.sessionLinks.bind(this);
+        // this.navbarSetState = this.navbarSetState.bind(this);
     }
+
+    // navbarSetState(currentUser) {
+    //     this.setState({ user: currentUser });
+    // };
 
     logoutUser(e) {
         e.preventDefault();
@@ -26,18 +31,18 @@ class NavBar extends React.Component {
         //     return null
         // }
         if(this.props.loggedIn) {
+            console.log(this.state.user)
+            console.log(this.props.user)
             return (
               <nav className="header-group">
                 <h2 className="header-name">
-                  {this.props.currentUser
-                    ? this.props.currentUser.username
-                    : null}
+                    {this.state.user.username}
                 </h2>
                 &nbsp;&nbsp;
-                {console.log(this.props.currentUser)}
+                {/* {console.log(this.props.currentUser)} */}
                
-                {this.props.currentUser ? 
-                <Link to={`/profile/${this.props.currentUser.id}`}>
+                {this.props.user ? 
+                <Link to={`/profile/${this.props.user.id}`}>
                     <button className="header-button">
                         profile
                     </button>

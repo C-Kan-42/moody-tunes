@@ -13,7 +13,7 @@ import * as SessionActions from '../../actions/session_actions';
 const mapStateToProps = (state, ownProps) => {
     return {
         playlists: state.entities.playlists.all,
-        user: state.session.user,
+        user: state.session.currentUser,
         follows: state.entities.follows.user
     };
 };

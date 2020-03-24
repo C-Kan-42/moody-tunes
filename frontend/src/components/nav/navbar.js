@@ -8,7 +8,7 @@ class NavBar extends React.Component {
         super(props);
 
         this.state = {
-            user: this.props.currentUser
+            user: {}
         };
 
         this.logoutUser = this.logoutUser.bind(this);
@@ -31,18 +31,18 @@ class NavBar extends React.Component {
         //     return null
         // }
         if(this.props.loggedIn) {
+            console.log(this.state.user)
+            console.log(this.props.user)
             return (
               <nav className="header-group">
                 <h2 className="header-name">
-                  {this.props.currentUser
-                    ? this.props.currentUser.username
-                    : null}
+                    {this.state.user.username}
                 </h2>
                 &nbsp;&nbsp;
-                {console.log(this.props.currentUser)}
+                {/* {console.log(this.props.currentUser)} */}
                
-                {this.state.user ? 
-                <Link to={`/profile/${this.state.user.id}`}>
+                {this.props.user ? 
+                <Link to={`/profile/${this.props.user.id}`}>
                     <button className="header-button">
                         profile
                     </button>

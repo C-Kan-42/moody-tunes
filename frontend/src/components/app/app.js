@@ -15,26 +15,36 @@ import PlaylistShowContainer from '../playlists/playlist_show_container';
 import ProfileContainer from '../profile/profile_container';
 import FollowContainer from '../follows/follows_container';
 
-const App = () => (
-   
-    <div className="app">
-        <Modal/>
-        <NavBarContainer />
+class App extends React.Component {
 
-        <Switch>
-            <AuthRoute exact path="/" component={MainPage} />
-            <AuthRoute exact path="/login" component={LoginFormContainer} />
-            <AuthRoute exact path="/register" component={SignupFormContainer} />
-            <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
-            <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
-            {/* <ProtectedRoute path="/profile" components={{profile: {ProfileContainer}, follows: {FollowContainer}}} />  */}
-            {/* <ProtectedRoute path="/profile" component={FollowContainer}/> */}
-            <ProtectedRoute path="/profile/:userId" component={ProfileContainer} />
-        </Switch>
+    constructor() {
+        super()
+        this.state = {
+            user: {}
+        }
+    }
 
-    </div>
 
-   
-);
+    render() {
+        return (
+            <div className="app">
+                <Modal />
+                <NavBarContainer user={this.state.user}/>
+
+                <Switch>
+                    <AuthRoute exact path="/" component={MainPage} />
+                    <AuthRoute exact path="/login" component={LoginFormContainer} />
+                    <AuthRoute exact path="/register" component={SignupFormContainer} />
+                    <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
+                    <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
+                    {/* <ProtectedRoute path="/profile" components={{profile: {ProfileContainer}, follows: {FollowContainer}}} />  */}
+                    {/* <ProtectedRoute path="/profile" component={FollowContainer}/> */}
+                    <ProtectedRoute path="/profile/:userId" component={ProfileContainer} user={this.state.user}/>
+                </Switch>
+
+            </div>
+        )
+    }
+} 
 
 export default App;

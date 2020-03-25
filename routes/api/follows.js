@@ -16,7 +16,7 @@ router.get("/user/:userId", (req, res) => {
       .then(follows => res.json(follows))
       .catch(err => res
           .status(404)
-          .json({ noplaylistsfound: "No followed playlists found" })
+          .json({ nofollowssfound: "No follow objects found" })
       );
 });
 

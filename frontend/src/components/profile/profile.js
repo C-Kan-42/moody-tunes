@@ -9,8 +9,9 @@ class Profile extends React.Component {
 
         this.state = {
             playlists: [],
-            user: {},
-            follows: {}
+            follows: [],
+            follow: {},
+            currentUser: {}
         }
         
         this.playlistTitleFetcher = this.playlistTitleFetcher.bind(this);
@@ -18,6 +19,7 @@ class Profile extends React.Component {
 
     componentDidMount() {
         this.props.fetchUserFollows(this.props.match.params.userId);
+        this.props.fetchPlaylists();
     }
 
     playlistTitleFetcher(follow) {
@@ -28,7 +30,6 @@ class Profile extends React.Component {
             this.props.playlists.forEach(playlist => {
                 if (playlist._id === follow.playlistId) {
                     currPlaylist = playlist;
-                
                 };
             });
         }
@@ -45,28 +46,24 @@ class Profile extends React.Component {
     }
 
     render() {
-        // console.log((this.props.follows));
-
+        console.log((this.props.follows));
+        console.log((this.props.playlists))
         return (
             <div className="profile-container">
               {/* {console.log(this.props.user)} */}
-                {this.props.user ? 
+                {this.props.currentUser ? 
                     <h2 className="profile-gretting">
-                        Hi, {this.props.user.username? this.props.user.username : null}
+                        Hi, {this.props.currentUser.username? this.props.currentUser.username : null}
                     </h2> : null}
                 <h3 className="profile-follows">
                     Followed Playlists
                 </h3>
-                
+                {console.log((this.props.follows))}
                 <ul className="followed-playlists">
-                    {Array.isArray(this.props.follows) ? (this.props.follows.map(follow => 
-                        // <li>
-                        //     {follow.playlistId}
-                        // </li>
+                    {this.props.follows.length > 0 ? (this.props.follows.map(follow => 
                         this.playlistTitleFetcher(follow)
                     )) : null}
                 </ul>
-                {/* {this.props.user ? <Follow user={this.props.user}/> : null } */}
             </div>
         );
     }

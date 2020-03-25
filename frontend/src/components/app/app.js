@@ -21,7 +21,9 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            user: {}
+            user: {},
+            // playlists: [],
+            // follows: []
         }
     }
 
@@ -36,7 +38,7 @@ class App extends React.Component {
                     <AuthRoute exact path="/" component={MainPage} />
                     <ProtectedRoute exact path="/playlists" component={PlaylistsContainer} />
                     <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShowContainer} />
-                    <ProtectedRoute path="/profile/:userId" component={ProfileContainer} user={this.state.user}/>
+                    <ProtectedRoute path="/profile/:userId" component={ProfileContainer} currentUser={this.state.user} />
                     <Route component={InvalidRoute} />
                 </Switch>
 

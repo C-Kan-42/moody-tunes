@@ -4,7 +4,7 @@ import {
     REMOVE_FOLLOW
 } from '../actions/follow_actions';
 
-const FollowsReducer = (state = { all: {}, user: {}, follow: {}}, action) => {
+const FollowsReducer = (state = { all: {}, user: [], follow: {}}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 

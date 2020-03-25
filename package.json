@@ -37,7 +37,6 @@
     "node": "10.13.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2",
-    "webpack-cli": "^3.3.10"
+    "nodemon": "^2.0.2"
   }
 }

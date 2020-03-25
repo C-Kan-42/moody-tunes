@@ -27,11 +27,6 @@ export const receiveReaction = reaction => ({
     reaction
 });
 
-// export const receiveFollowedPlaylists = playlists => ({
-//     type: RECEIVE_FOLLOWED_PLAYLISTS,
-//     playlists
-// });
-
 export const fetchPlaylists = () => dispatch => (
     getPlaylists()
         .then(playlists => dispatch(receivePlaylists(playlists)))

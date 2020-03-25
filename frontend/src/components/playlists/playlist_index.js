@@ -30,11 +30,8 @@ class PlaylistIndex extends React.Component{
     render() {
         if (this.props.playlists.length > 0) {
             const { playlists } = this.props
-            // console.log(playlists);
         }
-        // const playlistItem = 
-        // console.log(this.props.playlists)
-        // console.log(this.state)
+    
         return (
             <section className="playlist-index-container">
                 {this.props.playlists.length > 0 ? 

@@ -30,12 +30,6 @@ export const receiveFollow = follow => ({
     follow
 });
 
-// export const fetchFollows = () => dispatch => (
-//     getFollows()
-//         .then(follows => dispatch(receiveFollows(follows)))
-//         .catch(err => console.log(err))
-// );
-
 export const fetchUserFollows = id => dispatch => (
     getUserFollows(id)
         .then(follows => dispatch(receiveUserFollows(follows)))

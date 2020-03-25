@@ -31,8 +31,8 @@ class NavBar extends React.Component {
         //     return null
         // }
         if(this.props.loggedIn) {
-            console.log(this.state.user)
-            console.log(this.props.user)
+            // console.log(this.state.user)
+            // console.log(this.props.user)
             return (
               <nav className="header-group">
                 <h2 className="header-name">

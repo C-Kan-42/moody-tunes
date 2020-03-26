@@ -19,3 +19,8 @@ and Express.js on the backend, and Javascript/React/Redux to render the front-en
 * Follow playlists (for registered users)
 * User dashboard (for registered users)
 * Reaction buttons on playlists
+
+## Feature Implementation Issues
+* Persisting reaction count data to the database
+* Persisting follow playlist action
+  * Passing and recieving state shape correctly in order to make the follow action persist

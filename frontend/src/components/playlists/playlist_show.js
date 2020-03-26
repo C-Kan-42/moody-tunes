@@ -76,9 +76,7 @@ class PlaylistShow extends React.Component {
         // console.log('follow button clicked')
         e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
-        console.log(userId);
         let playlistId = this.props.playlist._id;
-        console.log(playlistId);
         const followData = {playlistId: playlistId, userId: userId};
         let followButtonText = "Unfollow";
         this.props.sendFollow(followData);

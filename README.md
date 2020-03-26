@@ -11,3 +11,11 @@ that playlist's mood.
 ## Technology
 This app is built on a MERN tech stack. It uses MongoDB as the datavase for Node.js 
 and Express.js on the backend, and Javascript/React/Redux to render the front-end.
+
+## Features
+* User authentication
+* Spotify API
+  * Audio playing
+* Follow playlists (for registered users)
+* User dashboard (for registered users)
+* Reaction buttons on playlists

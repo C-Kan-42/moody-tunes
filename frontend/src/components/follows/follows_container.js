@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
   return {
     // follows: Object.values(state.follows.all),
     playlists: state.entities.playlists.all,
-    user: state.session.user
+    user: state.session.currentUser
   };
 };
 

@@ -8,7 +8,7 @@ import { sendFollow, removeFollow } from '../../actions/follow_actions';
 const mSTP = (state) => {
     return {
         playlist: state.entities.playlists.currentPlaylist,
-        user: state.session.user
+        user: state.session.currentUser
     }
 };
 

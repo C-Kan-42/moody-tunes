@@ -22,6 +22,7 @@ class PlaylistShow extends React.Component {
         this.reactOnPlaylistChill = this.reactOnPlaylistChill.bind(this);
         this.reactOnPlaylistAngry = this.reactOnPlaylistAngry.bind(this);
         this.followPlaylist = this.followPlaylist.bind(this);
+        this.unfollowPlaylist = this.unfollowPlaylist.bind(this);
     };
 
     componentDidMount() {
@@ -87,6 +88,15 @@ class PlaylistShow extends React.Component {
         
     }
 
+    unfollowPlaylist(e) {
+        e.preventDefault();
+        let userId = this.props.user ? this.props.user.id : null;
+        let playlistId = this.props.playlist._id;
+        const followData = { playlistId: playlistId, userId: userId };
+        let followButtonText = "+ Follow";
+        this.props.removeFollow(followData);
+    }
+
     render() {
         const {playlist} = this.props;
         // console.log(playlist.reactions)
@@ -95,13 +105,15 @@ class PlaylistShow extends React.Component {
         if (this.props.playlist === {}) {
             return null;
         } else {
-            // console.log(playlist.reactions)
             return(
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
                             <button className="playlist-detail+f" onClick={this.followPlaylist}>
-                                {followButtonText}
+                                + Follow
+                            </button>
+                            <button className="playlist-detail+f" onClick={this.unfollowPlaylist}>
+                                - Unfollow
                             </button>
                         </div>
                     </div>

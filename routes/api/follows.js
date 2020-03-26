@@ -46,10 +46,10 @@ router.post("/:playlistId",
 );
 
 router.delete('/:playlistId', (req, res) => {
-    Follow.findById(req.params.id)
-        .then(follows => res.json(follows))
+    Follow.deleteOne({userId: req.body.userId, playlistId: req.body.playlistId})
+        .then(follow => res.json(follow))
         .catch(err => 
-            res.status(404).json({ noplaylistfound: "Playlist was unfollowed" })
+            res.status(404).json({ nofollowfound: "Playlist was not unfollowed" })
         );
 });
 

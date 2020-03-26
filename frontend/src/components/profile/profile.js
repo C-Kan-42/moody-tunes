@@ -35,7 +35,7 @@ class Profile extends React.Component {
         }
 
         return (
-            <li>
+            <li className="followed-playlist-item">
                 {currPlaylist ? 
                 (<Link to={`/playlists/${currPlaylist._id}`} style={{ textDecoration: 'none' }}>
                     {currPlaylist.title}
@@ -56,7 +56,7 @@ class Profile extends React.Component {
                         Hi, {this.props.currentUser.username? this.props.currentUser.username : null}
                     </h2> : null}
                 <h3 className="profile-follows">
-                    Followed Playlists
+                    Your Followed Playlists
                 </h3>
                 {console.log((this.props.follows))}
                 <ul className="followed-playlists">

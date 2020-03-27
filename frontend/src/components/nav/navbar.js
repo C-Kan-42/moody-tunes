@@ -35,11 +35,11 @@ class NavBar extends React.Component {
             // console.log(this.props.user)
             return (
               <nav className="header-group">
-                <h2 className="header-name">
+                {/* <h2 className="header-name">
                     {this.state.user.username}
                 </h2>
                 &nbsp;&nbsp;
-                {/* {console.log(this.props.currentUser)} */}
+                {console.log(this.props.currentUser)} */}
                
                 {this.props.user ? 
                 <Link to={`/profile/${this.props.user.id}`}>

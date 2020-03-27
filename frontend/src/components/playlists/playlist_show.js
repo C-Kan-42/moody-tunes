@@ -100,7 +100,7 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail+f" onClick={this.followPlaylist}>
+                            <button className="playlist-detail-button" onClick={this.followPlaylist}>
                                 {followButtonText}
                             </button>
                         </div>

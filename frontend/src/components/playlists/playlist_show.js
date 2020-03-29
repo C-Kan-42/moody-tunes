@@ -89,8 +89,7 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
-        // console.log(playlist.reactions)
-        // console.log(this.props.playlist);
+        var source = `https://open.spotify.com/embed/playlist/${playlist.spotifyId}`;
         let followButtonText = "+ Follow"
         if (this.props.playlist === {}) {
             return null;
@@ -109,13 +108,17 @@ class PlaylistShow extends React.Component {
                         <h2 className="playlist-title">
                             {playlist.title}
                         </h2>
-                        <ul className="song-list">
+                        {/* <ul className="song-list">
                             {this.props.playlist.songs ? playlist.songs.map(song => 
                             <li>
                                 <Track key={song._id} track={song}/> 
                             </li>
                             ) : null}
-                        </ul> 
+                        </ul>  */}
+
+                        <div className="embedded-spotify-playlist">
+                            <iframe src={source} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        </div>
                         <div className="reaction-buttons">
                             <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylist}>

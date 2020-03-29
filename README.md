@@ -23,6 +23,13 @@ and Express.js on the backend, and Javascript/React/Redux to render the front-en
 
 <img src="https://i.imgur.com/XqxS43o.png" height=300 width=300 />
 
+* Each playlist object in the database has an associated reactions object, which contains information about the number of reactions recorded for each emotion. 
+* When a reaction button is clicked, the reaction count is instantly updated and the backend is modified to reflect the newly-added reaction.
+
+* Also, each playlist can be followed, after which users can go to their profile page to view their followed playlists.
+* This was implemented by having a separate "follows" collection in MongoDB, where each follow document contains the userId and the current playlistId. 
+* When a user clicks the follow button, a new follow document is created in the database. The user profile page simply fetches all follows associated with the current userId, and displays the playlists by accessing the corresponding playlistId.
+
 ## Feature Implementation Issues
 * Persisting reaction count data to the database
 * Persisting follow playlist action

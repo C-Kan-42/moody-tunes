@@ -17,10 +17,11 @@ and Express.js on the backend, and Javascript/React/Redux to render the front-en
 * User dashboard (for registered users)
   * Displays user's followed playlists
 * Reaction buttons on playlists
-  * With live-updated reaction counts
+  * With live-updated reaction counts />
 
 ## Playlist reaction buttons and follow button
-![alt_text](https://i.imgur.com/XqxS43o.png)
+
+<img src="https://i.imgur.com/XqxS43o.png" height=300 width=300 />
 
 ## Feature Implementation Issues
 * Persisting reaction count data to the database

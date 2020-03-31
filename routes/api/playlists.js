@@ -40,17 +40,16 @@ router.post("/", (req, res) => {
 })
 
 //To update reaction count
-router.patch('/:playlistId/react', (req, res, next) => {
-    const action = req.body.reaction;
+router.patch('/:playlistId', (req, res, next) => {
+    var action = req.body.reaction;
     const counter = action ? 1 : -1;
     var field = {};
     field[`reactions.${action}`] = counter;    
     
-    Playlist.updateOne({ _id: req.params.playlistId}, { $inc: field }).exec()
-        .then(res => {
-            res.status(200).json({message: 'reacted'});})
-        .catch(err => {
-            res.status(500).json({error: err})});
+    Playlist.updateOne({ _id: req.body.id}, { $inc: field })
+        // .then(res => {res.status(200).json({message: 'reacted'});})
+        .then(playlist => res.json(playlist))
+        .catch(err => res.status(500).json({error: err}));
     
 })
 

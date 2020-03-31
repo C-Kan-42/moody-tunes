@@ -26,8 +26,11 @@ class Playlist extends React.Component {
       var imgSrc = "https://mosaic.scdn.co/640/24ed37770972eb75f697dcc6af3e3820ee2413e8ab67616d0000b27335f1ecb5dd00dfee10900806ab67616d0000b2734ff02465293ecbc4fcbe0bbaab67616d0000b2739aafa820f8f3e52cbebd18c0";
     else if (playlist.title === 'Sad')
       var imgSrc = "https://mosaic.scdn.co/640/ab67616d0000b27334d4dd05ab32165c37775f09ab67616d0000b2737aede4855f6d0d738012e2e5ab67616d0000b273c5649add07ed3720be9d5526ab67616d0000b273f5d8fc1c5ffe3044d1f0a72e";
-    else 
+    else if (playlist.title === 'Angry')
     var imgSrc = "https://mosaic.scdn.co/640/ab67616d0000b27327c8e79e48a7b9b7c9ed6ba0ab67616d0000b2739203fd1f5c23f0ad92ce63faab67616d0000b273b12877d8bdfaa0f19b4624faab67616d0000b273dcbd25c605dddb32022cecba";
+    else if (playlist.title === 'In Love')
+      var imgSrc = "https://mosaic.scdn.co/640/ab67616d0000b273391ba47a00139cfab4c4d716ab67616d0000b27367ba7772d52aa06acc78e62dab67616d0000b273bb3df70b7531c9a5fb5d9974ab67616d0000b273f641512591d1a58c3b1543f8";
+    
   
     return(
       <li className="playlist-item" >

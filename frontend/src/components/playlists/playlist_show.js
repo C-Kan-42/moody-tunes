@@ -30,23 +30,13 @@ class PlaylistShow extends React.Component {
     }
 
     reactOnPlaylist(e) {
-        // var updatePlaylistStats = {
-        //     react: function(playlistId)  {
-        //         document.querySelector("react-counts").textContent++;
-        //     }
-        // };
-  
         e.preventDefault();
         var playlistId = this.props.playlist._id;
-        // var action = e.target.textContent.trim();
-        // const reaction = Object.assign("", this.state);
-        
         this.props.playlist.reactions ? document.querySelector("#react-counts-happy").textContent++ : console.log(null);
         const reactionData = {id: playlistId, reaction: "happy"}
         // axios.post('/playlists/' + playlistId + '/react', {action: action});
         this.props.sendReaction(reactionData);
     }
-
 
     reactOnPlaylistSad(e) {
         e.preventDefault();

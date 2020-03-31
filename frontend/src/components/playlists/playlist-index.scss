@@ -1,11 +1,18 @@
+.playlist-index-container {
+  background-image: linear-gradient(black, #863CD6);
+  height: 100vh;
+}
 .playlist-index {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   font-size: 30px;
   color: white;
-  background-image: linear-gradient(black, #863CD6);
+  justify-content: space-evenly;
+
+  // background-image: linear-gradient(black, #863CD6);
+  // height: 100%;
 }
 
 .playlist-item h2 {

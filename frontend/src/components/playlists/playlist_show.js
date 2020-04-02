@@ -31,23 +31,13 @@ class PlaylistShow extends React.Component {
     }
 
     reactOnPlaylist(e) {
-        // var updatePlaylistStats = {
-        //     react: function(playlistId)  {
-        //         document.querySelector("react-counts").textContent++;
-        //     }
-        // };
-  
         e.preventDefault();
         var playlistId = this.props.playlist._id;
-        // var action = e.target.textContent.trim();
-        // const reaction = Object.assign("", this.state);
-        
         this.props.playlist.reactions ? document.querySelector("#react-counts-happy").textContent++ : console.log(null);
         const reactionData = {id: playlistId, reaction: "happy"}
         // axios.post('/playlists/' + playlistId + '/react', {action: action});
         this.props.sendReaction(reactionData);
     }
-
 
     reactOnPlaylistSad(e) {
         e.preventDefault();
@@ -99,8 +89,7 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
-        // console.log(playlist.reactions)
-        // console.log(this.props.playlist);
+        var source = `https://open.spotify.com/embed/playlist/${playlist.spotifyId}`;
         let followButtonText = "+ Follow"
         if (this.props.playlist === {}) {
             return null;
@@ -109,11 +98,8 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail+f" onClick={this.followPlaylist}>
-                                + Follow
-                            </button>
-                            <button className="playlist-detail+f" onClick={this.unfollowPlaylist}>
-                                - Unfollow
+                            <button className="playlist-detail-button" onClick={this.followPlaylist}>
+                                {followButtonText}
                             </button>
                         </div>
                     </div>
@@ -121,13 +107,17 @@ class PlaylistShow extends React.Component {
                         <h2 className="playlist-title">
                             {playlist.title}
                         </h2>
-                        <ul className="song-list">
+                        {/* <ul className="song-list">
                             {this.props.playlist.songs ? playlist.songs.map(song => 
                             <li>
                                 <Track key={song._id} track={song}/> 
                             </li>
                             ) : null}
-                        </ul> 
+                        </ul>  */}
+
+                        <div className="embedded-spotify-playlist">
+                            <iframe src={source} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        </div>
                         <div className="reaction-buttons">
                             <div>
                                 <button className="reaction-box" onClick={this.reactOnPlaylist}>

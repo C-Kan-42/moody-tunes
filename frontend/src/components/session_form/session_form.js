@@ -95,13 +95,13 @@ class SessionForm extends React.Component {
       username = "username";
       password = "password";
       const demoLabel = "Demo User";
-      demoButton = (
-        <button onClick={this.handleDemo} className="demo-button">
-          <div className="button-label"> 
-            Demo User
-          </div> 
-        </button>
-      );
+      // demoButton = (
+      //   <button onClick={this.handleDemo} className="demo-button">
+      //     <div className="button-label"> 
+      //       Demo User
+      //     </div> 
+      //   </button>
+      // );
     }
 
     return (
@@ -152,7 +152,7 @@ class SessionForm extends React.Component {
                   <input className="submit" type="submit" value={this.props.formType} />
               </div>
               <div className="right-button">
-                {demoButton}
+                {this.props.formType !== "Sign Up" ? <input className="submit" type="submit" value="Demo User" onClick={this.handleDemo} /> : null}
               </div>
             </div>
             

@@ -2,7 +2,6 @@ import React from 'react';
 // import {Route} from 'react-router-dom';
 // import axios from 'axios';
 import Track from '../track/track';
-// import Reactions from '../reactions/reactions';
 import './playlist-show.scss';
 
 class PlaylistShow extends React.Component {
@@ -14,7 +13,10 @@ class PlaylistShow extends React.Component {
             reactions: {
                 happy: 0,
                 sad: 0
-            }
+            },
+            follows: [],
+            user: {}
+
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
@@ -27,7 +29,8 @@ class PlaylistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
-        // this.props.fetchReactions();
+        this.props.fetchUserFollows(this.props.user.id);
+
     }
 
     reactOnPlaylist(e) {
@@ -63,18 +66,18 @@ class PlaylistShow extends React.Component {
         this.props.sendReaction(reactionData);
     }
     
-    followPlaylist(e) {
+    followPlaylist(followButtonText) {
         // console.log('follow button clicked')
-        e.preventDefault();
+        // e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
         const followData = {playlistId: playlistId, userId: userId};
-        let followButtonText = "Unfollow";
-        this.props.sendFollow(followData);
 
-        //how to check if a user has followed this playlist?
-        //if they follow it, render +unfollow and this.props.removeFollow(playlistId)
-        //if they don't, execute above
+        if (followButtonText === "+ Follow") {
+            this.props.sendFollow(followData);
+        } else {
+            this.props.removeFollow(followData);
+        }
         
     }
 
@@ -89,8 +92,14 @@ class PlaylistShow extends React.Component {
 
     render() {
         const {playlist} = this.props;
+        var followButtonText = "+ Follow";
+        for (var i = 0; i < this.props.follows.length; i++) {
+            var follow = this.props.follows[i];
+            if (follow.playlistId === this.props.playlist._id) {
+                var followButtonText = "Unfollow";
+            }
+        }
         var source = `https://open.spotify.com/embed/playlist/${playlist.spotifyId}`;
-        let followButtonText = "+ Follow"
         if (this.props.playlist === {}) {
             return null;
         } else {
@@ -98,7 +107,7 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail-button" onClick={this.followPlaylist}>
+                            <button className="playlist-detail-button" onClick={this.followPlaylist(followButtonText)}>
                                 {followButtonText}
                             </button>
                         </div>

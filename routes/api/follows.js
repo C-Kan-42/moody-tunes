@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 const Follow = require("../../models/Follow");
@@ -45,12 +46,19 @@ router.post("/:playlistId",
     }
 );
 
-router.delete('/:playlistId', (req, res) => {
-    Follow.deleteOne({userId: req.body.userId, playlistId: req.body.playlistId})
-        .then(follow => res.json(follow))
-        .catch(err => 
-            res.status(404).json({ nofollowfound: "Playlist was not unfollowed" })
-        );
+router.delete("/:playlistId", (req, res) => {
+    console.log(req.body.playlistId)
+    Follow.deleteOne({"playlistId": new mongoose.Types.ObjectId(req.body.playlistId)}, 
+        (err, result) => {
+            if (err) return console.log(err)
+            console.log(req.body)
+            res.redirect('/')
+        })
+        // .then(res => res.status(200).json({
+        //     message: 'Follow deleted'), res})
+        // .catch(err => 
+        //     res.status(404).json({ nofollowfound: "Playlist was not unfollowed" })
+        // );
 });
 
 module.exports = router;

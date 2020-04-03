@@ -4,7 +4,7 @@ import {
     REMOVE_FOLLOW
 } from '../actions/follow_actions';
 
-const FollowsReducer = (state = { all: {}, user: [], follow: {}}, action) => {
+const FollowsReducer = (state = { all: {}, user: [], follow: {}} , action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
@@ -13,7 +13,9 @@ const FollowsReducer = (state = { all: {}, user: [], follow: {}}, action) => {
             newState.user = action.follows.data;
             return newState;
         case REMOVE_FOLLOW:
-            // newState.user = 
+            for (var i = 0; i < newState.user.length; i++){
+                newState.user = newState.user.filter(({ playlistId }) => playlistId !== action.follow.playlistId);
+            }
             return newState;
         case RECEIVE_FOLLOW:
             newState.follow = action.follow;

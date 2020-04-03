@@ -9,12 +9,6 @@ export const RECEIVE_USER_FOLLOWS = 'RECEIVE_USER_FOLLOWS';
 export const REMOVE_FOLLOW = 'REMOVE_FOLLOW';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 
-
-// export const receiveFollows = follows => ({
-//     type: RECEIVE_FOLLOWS,
-//     follows
-// }); 
-
 export const receiveUserFollows = follows => ({
     type: RECEIVE_USER_FOLLOWS,
     follows

@@ -10,13 +10,8 @@ class PlaylistShow extends React.Component {
         this.state = {
             songs: [],
             title: "",
-            reactions: {
-                happy: 0,
-                sad: 0
-            },
             follows: [],
             user: {}
-
         }
 
         this.reactOnPlaylist = this.reactOnPlaylist.bind(this);
@@ -30,7 +25,6 @@ class PlaylistShow extends React.Component {
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
         this.props.fetchUserFollows(this.props.user.id);
-
     }
 
     reactOnPlaylist(e) {
@@ -66,19 +60,14 @@ class PlaylistShow extends React.Component {
         this.props.sendReaction(reactionData);
     }
     
-    followPlaylist(followButtonText) {
+    followPlaylist(e) {
         // console.log('follow button clicked')
-        // e.preventDefault();
+        e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
         const followData = {playlistId: playlistId, userId: userId};
-
-        if (followButtonText === "+ Follow") {
-            this.props.sendFollow(followData);
-        } else {
-            this.props.removeFollow(followData);
-        }
-        
+        var followButtonText = "Unfollow"
+        this.props.sendFollow(followData);
     }
 
     unfollowPlaylist(e) {
@@ -86,18 +75,23 @@ class PlaylistShow extends React.Component {
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
         const followData = { playlistId: playlistId, userId: userId };
-        let followButtonText = "+ Follow";
+        console.log(this.props.follows)
+        var followButtonText = "+ Follow";
         this.props.removeFollow(followData);
+        //change it to delete by follow _id
     }
 
     render() {
         const {playlist} = this.props;
         var followButtonText = "+ Follow";
-        for (var i = 0; i < this.props.follows.length; i++) {
-            var follow = this.props.follows[i];
-            if (follow.playlistId === this.props.playlist._id) {
-                var followButtonText = "Unfollow";
-            }
+        console.log(this.props.follows)
+        if (this.props.follows.length > 0) {
+            for (var i = 0; i < this.props.follows.length; i++) {
+                var follow = this.props.follows[i];
+                if (follow.playlistId === this.props.playlist._id) {
+                    followButtonText = "Unfollow";
+                }
+            } 
         }
         var source = `https://open.spotify.com/embed/playlist/${playlist.spotifyId}`;
         if (this.props.playlist === {}) {
@@ -107,9 +101,13 @@ class PlaylistShow extends React.Component {
                 <section className="playlist-show-detail">
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
-                            <button className="playlist-detail-button" onClick={this.followPlaylist(followButtonText)}>
+                            { followButtonText === "+ Follow" ? 
+                            (<button className="playlist-detail-button" onClick={this.followPlaylist}>
                                 {followButtonText}
-                            </button>
+                            </button>) :
+                            (<button className="playlist-detail-button" onClick={this.unfollowPlaylist}>
+                                {followButtonText}
+                            </button>) }
                         </div>
                     </div>
                     <div className="playlist-details">
@@ -155,7 +153,6 @@ class PlaylistShow extends React.Component {
 
                         </div>
                     </div>
-                    {/* < Reactions /> */}
                 </section>
             );
         }    

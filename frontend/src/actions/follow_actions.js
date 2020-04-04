@@ -9,20 +9,14 @@ export const RECEIVE_USER_FOLLOWS = 'RECEIVE_USER_FOLLOWS';
 export const REMOVE_FOLLOW = 'REMOVE_FOLLOW';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 
-
-// export const receiveFollows = follows => ({
-//     type: RECEIVE_FOLLOWS,
-//     follows
-// }); 
-
 export const receiveUserFollows = follows => ({
     type: RECEIVE_USER_FOLLOWS,
     follows
 });
 
-export const removeFollow = followId => ({
+export const removeFollow = follow => ({
     type: REMOVE_FOLLOW,
-    followId
+    follow
 });
 
 export const receiveFollow = follow => ({
@@ -42,8 +36,8 @@ export const sendFollow = followData => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const deleteFollow = followId => dispatch => (
-    destroyFollow(followId)
-        .then(followId => dispatch(removeFollow(followId)))
+export const deleteFollow = followData => dispatch => (
+    destroyFollow(followData)
+        .then(res => dispatch(removeFollow(res.data)))
         .catch(err => console.log(err))
 );

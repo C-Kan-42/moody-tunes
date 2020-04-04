@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         playlists: state.entities.playlists.all,
         follows: state.entities.follows.user,
-        follow: state.entities.follows.follow,
+        // follow: state.entities.follows.follow,
         currentUser: state.session.currentUser
     };
 };

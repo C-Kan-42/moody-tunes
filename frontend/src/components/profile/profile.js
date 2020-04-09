@@ -56,7 +56,7 @@ class Profile extends React.Component {
     }
 
     render() {
-        console.log((this.state.follows));
+        // console.log((this.state.follows));
         // console.log((this.props.playlists))
         return (
             <div className="profile-container">

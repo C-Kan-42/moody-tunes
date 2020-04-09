@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
-const express = require("express");
+// const cors = require('cors');
+const express = require('express');
+// let app = express();
+// app.use(cors());
+// app.options('*', cors());
+// const express = require("express");
 const router = express.Router();
 const Follow = require("../../models/Follow");
 // const passport = require("passport");
 // const jwt = require("jsonwebtoken");
+
 
 router.get('/', (req, res) => {
     Follow.find()
@@ -46,14 +52,29 @@ router.post("/:playlistId",
     }
 );
 
-router.delete("/:playlistId", (req, res) => {
-    console.log(req.body.playlistId)
-    Follow.deleteOne({"playlistId": new mongoose.Types.ObjectId(req.body.playlistId)}, 
-        (err, result) => {
-            if (err) return console.log(err)
-            console.log(req.body)
-            res.redirect('/')
+router.delete("/:followId", (req, res) => {
+    Follow.findByIdAndRemove(req.params.followId)
+        .then(follow => {
+            if (!follow) {
+                return res.status(404).send({
+                    message: "Follow not found with that id"
+                })
+            }
+        }).catch(err => {
+            return res.status(500).send({
+                message: "Could not delete follow with that id"
+            })
         })
+    
+    
+        // .remove()
+        // .then(follow => res.json(follow))
+        // .catch(err => res.status(500).json({ error: err }));
+        // (err, result) => {
+        //     if (err) return console.log(err)
+        //     console.log(req.body)
+        //     res.redirect('/')
+        // })
         // .then(res => res.status(200).json({
         //     message: 'Follow deleted'), res})
         // .catch(err => 

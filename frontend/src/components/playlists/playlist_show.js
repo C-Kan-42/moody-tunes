@@ -24,7 +24,11 @@ class PlaylistShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlaylist(this.props.match.params.playlistId);
-        this.props.fetchUserFollows(this.props.user.id);
+        this.props.fetchUserFollows(this.props.user.id)
+        //     .then((res) => {
+        //     // console.log(res.follows.data);
+        //     this.setState({ follows: res.follows.data });
+        // });
     }
 
     reactOnPlaylist(e) {
@@ -65,26 +69,36 @@ class PlaylistShow extends React.Component {
         e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
-        const followData = {playlistId: playlistId, userId: userId};
+        const followData = {playlistId: playlistId, userId: userId };        
         var followButtonText = "Unfollow"
-        this.props.sendFollow(followData);
+        document.querySelector('#button').innerHTML = "Unfollow"
+        this.props.sendFollow(followData)
+        this.setState({["follows"]: this.state.follows})
     }
 
     unfollowPlaylist(e) {
         e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
-        const followData = { playlistId: playlistId, userId: userId };
-        console.log(this.props.follows)
+        for (var i = 0; i < this.props.follows.length; i++){
+            if (this.props.follows[i].playlistId === playlistId && this.props.follows[i].userId === userId){
+                var currFollowId = this.props.follows[i]._id
+            }
+        }
+        const followData = { playlistId: playlistId, userId: userId, followId: currFollowId };
+        // console.log(followData)
         var followButtonText = "+ Follow";
-        this.props.removeFollow(followData);
-        //change it to delete by follow _id
+        document.querySelector('#button').innerHTML = "+ Follow"
+        this.props.deleteFollow(followData)
+        this.setState({["follows"]: this.state.follows.filter(({ followId }) => followId !== currFollowId)})
+                    
     }
 
     render() {
+        // console.log(this.state);
         const {playlist} = this.props;
         var followButtonText = "+ Follow";
-        console.log(this.props.follows)
+        // console.log(this.props.follows)
         if (this.props.follows.length > 0) {
             for (var i = 0; i < this.props.follows.length; i++) {
                 var follow = this.props.follows[i];
@@ -102,10 +116,10 @@ class PlaylistShow extends React.Component {
                     <div className="playlist-button-outer">
                         <div className="playlist-button-container">
                             { followButtonText === "+ Follow" ? 
-                            (<button className="playlist-detail-button" onClick={this.followPlaylist}>
+                            (<button className="playlist-detail-button" id="button" onClick={this.followPlaylist}>
                                 {followButtonText}
                             </button>) :
-                            (<button className="playlist-detail-button" onClick={this.unfollowPlaylist}>
+                            (<button className="playlist-detail-button" id="button" onClick={this.unfollowPlaylist}>
                                 {followButtonText}
                             </button>) }
                         </div>

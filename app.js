@@ -1,5 +1,12 @@
+
 const express = require("express");
 const app = express();
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 const mongoose = require("mongoose");
 // const db = require('./config/keys_prod').mongoURI;
 const users = require("./routes/api/users");
@@ -25,6 +32,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
 }
+
 
 app.get("/", (req, res) => {
   res.send("Hello Moody Tunes!");

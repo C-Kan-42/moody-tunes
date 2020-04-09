@@ -38,6 +38,8 @@ export const sendFollow = followData => dispatch => (
 
 export const deleteFollow = followData => dispatch => (
     destroyFollow(followData)
-        .then(res => dispatch(removeFollow(res.data)))
+        .then(res => {
+            console.log(res);
+            dispatch(removeFollow(res.data))})
         .catch(err => console.log(err))
 );

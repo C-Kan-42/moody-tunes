@@ -13,8 +13,9 @@ const FollowsReducer = (state = { all: {}, user: [], follow: {}} , action) => {
             newState.user = action.follows.data;
             return newState;
         case REMOVE_FOLLOW:
+            console.log(action.follow);
             for (var i = 0; i < newState.user.length; i++){
-                newState.user = newState.user.filter(({ playlistId }) => playlistId !== action.follow.playlistId);
+                newState.user = newState.user.filter(({ _id }) => _id !== action.follow.followId);
             }
             return newState;
         case RECEIVE_FOLLOW:

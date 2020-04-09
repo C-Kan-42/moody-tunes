@@ -31,6 +31,7 @@ class PlaylistShow extends React.Component {
         // });
     }
 
+    //refactor so that users can only react once with each emotion
     reactOnPlaylist(e) {
         e.preventDefault();
         var playlistId = this.props.playlist._id;

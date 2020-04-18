@@ -37,7 +37,6 @@ class PlaylistShow extends React.Component {
         var playlistId = this.props.playlist._id;
         this.props.playlist.reactions ? document.querySelector("#react-counts-happy").textContent++ : console.log(null);
         const reactionData = {id: playlistId, reaction: "happy"}
-        // axios.post('/playlists/' + playlistId + '/react', {action: action});
         this.props.sendReaction(reactionData);
     }
 
@@ -66,7 +65,6 @@ class PlaylistShow extends React.Component {
     }
     
     followPlaylist(e) {
-        // console.log('follow button clicked')
         e.preventDefault();
         let userId = this.props.user ? this.props.user.id : null;
         let playlistId = this.props.playlist._id;
@@ -87,7 +85,6 @@ class PlaylistShow extends React.Component {
             }
         }
         const followData = { playlistId: playlistId, userId: userId, followId: currFollowId };
-        // console.log(followData)
         var followButtonText = "+ Follow";
         document.querySelector('#button').innerHTML = "+ Follow"
         this.props.deleteFollow(followData)
@@ -96,10 +93,8 @@ class PlaylistShow extends React.Component {
     }
 
     render() {
-        // console.log(this.state);
         const {playlist} = this.props;
         var followButtonText = "+ Follow";
-        // console.log(this.props.follows)
         if (this.props.follows.length > 0) {
             for (var i = 0; i < this.props.follows.length; i++) {
                 var follow = this.props.follows[i];

@@ -20,13 +20,11 @@ class Profile extends React.Component {
     componentDidMount() {
         this.props.fetchUserFollows(this.props.match.params.userId) // want this to get stored in local state
             .then(res => {
-                // console.log(res.follows.data);
                 this.setState({follows: res.follows.data})
             })
             .then(res => {
                 this.props.fetchPlaylists()
                     .then(res => {
-                        // console.log(res)
                         this.setState({playlists: res.playlists.data});
                     })
             }); 
@@ -58,7 +56,6 @@ class Profile extends React.Component {
     render() {
         return (
             <div className="profile-container">
-              {/* {console.log(this.props.user)} */}
                 {this.props.currentUser ? 
                     <h2 className="profile-gretting">
                         Hi, {this.props.currentUser.username? this.props.currentUser.username : null}
@@ -66,7 +63,6 @@ class Profile extends React.Component {
                 <h3 className="profile-follows">
                     Your Followed Playlists
                 </h3>
-                {/* {console.log((this.props.follows))} */}
                 <ul className="followed-playlists">
                     {this.props.follows.length > 0 ? (this.props.follows.map(follow => 
                         this.playlistTitleFetcher(follow)

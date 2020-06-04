@@ -11,13 +11,12 @@ and Express.js on the backend, and Javascript/React/Redux to render the front-en
 
 ## Features
 * User authentication
-* Embedded Spotify playlists
-  * Easy access to playlists
-* Follow playlists (for registered users)
+* Embedded, followable Spotify playlists (for registered users)
+  * Easy access
 * User dashboard (for registered users)
   * Displays user's followed playlists
 * Reaction buttons on playlists
-  * With live-updated reaction counts />
+  * With live-updated reaction counts
 
 ## Playlist reaction buttons and follow button
 
